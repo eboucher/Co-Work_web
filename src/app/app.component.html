@@ -1,3 +1,6 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
   <div class="navbar-nav">
@@ -11,12 +14,21 @@
   <router-outlet></router-outlet>
 </div>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a href="#about">About</a></li>
-</ul>
+<!-- navbar -->
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
 
 <h1>The article and footer elements + CSS</h1>
 
@@ -36,12 +48,12 @@
   </article>
 </article>
 
+
+<!-- footer -->
 <footer>
   <p>Author: Esteban Boucher<br>
   <a href="mailto:es.boucher@protonmail.com">es.boucher@protonmail.com</a></p>
 </footer>
-
-<!-- footer -->
 <div class="text-center mt-4">
   <p>
       <a href="https://jasonwatmore.com/post/2019/06/26/angular-8-basic-http-authentication-tutorial-example" target="_top">Angular 8 - Basic HTTP Authentication Example & Tutorial</a>
