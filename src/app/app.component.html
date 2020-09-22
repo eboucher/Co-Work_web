@@ -1,36 +1,46 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Page 1-1</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Page 1-3</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Page 2</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
   </div>
 </nav>
-
-<!-- main app container -->
+  
 <div class="container">
-  <router-outlet></router-outlet>
+  <h3>Right Aligned Navbar</h3>
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 
-<!-- navbar -->
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-  </div> 
-</div>
+</body>
 
-<h1>The article and footer elements + CSS</h1>
+<h1>Reimagine your workspace</h1>
+
+<h3>Whether you’re an established enterprise or a growing startup, discover flexible spaces and solutions to move your business forward.</h3>
 
 <article class="all-browsers">
   <h1>Most Popular Browsers</h1>
@@ -53,12 +63,12 @@
 <footer>
   <p>Author: Esteban Boucher<br>
   <a href="mailto:es.boucher@protonmail.com">es.boucher@protonmail.com</a></p>
+  <div class="text-center mt-4">
+    <p>
+        <a href="https://jasonwatmore.com/post/2019/06/26/angular-8-basic-http-authentication-tutorial-example" target="_top">Angular 8 - Basic HTTP Authentication Example & Tutorial</a>
+    </p>
+    <p>
+        <a href="https://www.blogtrepreneur.com/wp-content/uploads/2015/03/get-more-work-done.jpg" target="_top">Reminder</a>
+    </p>
+  </div>
 </footer>
-<div class="text-center mt-4">
-  <p>
-      <a href="https://jasonwatmore.com/post/2019/06/26/angular-8-basic-http-authentication-tutorial-example" target="_top">Angular 8 - Basic HTTP Authentication Example & Tutorial</a>
-  </p>
-  <p>
-      <a href="https://www.blogtrepreneur.com/wp-content/uploads/2015/03/get-more-work-done.jpg" target="_top">Reminder</a>
-  </p>
-</div>
