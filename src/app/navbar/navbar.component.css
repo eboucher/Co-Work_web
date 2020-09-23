@@ -1,0 +1,10 @@
+.navbar-brand
+{
+    position: relative;
+    background: url(../../assets/cowork-logo_2.png);
+    width: 100px;
+    height: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
