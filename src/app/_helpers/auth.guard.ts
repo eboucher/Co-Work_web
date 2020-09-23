@@ -1,0 +1,1 @@
+﻿/* Angular route guard that will be used to prevent unauthenticated users from accessing restricted routes */
