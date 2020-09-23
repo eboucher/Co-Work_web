@@ -92,7 +92,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "src/app/footer/footer.component.css",
+                "bundleName": "app-footer"
+              },
+              {
+                "input": "src/app/navbar/navbar.component.css",
+                "bundleName": "app-navbar"
+              }
             ],
             "scripts": []
           }
