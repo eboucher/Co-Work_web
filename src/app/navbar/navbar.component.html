@@ -4,7 +4,8 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-faded">
     <div class="col-lg-12">
         <a class="navbar-brand" href="#"></a>
-        <img src="../../assets/cowork-logo_2.png" id="logo">
+        <!-- LOGO NOT WORKING, CAN'T FIX SIZE DUE TO UNRECOGNIZED CSS, TODO -->
+        <!-- <img src="../../assets/cowork-logo_2.png" id="logo"> -->
 
         <div class="navigation-container" id="mobile_menu">
             <ul class="nav navbar-nav">
@@ -41,7 +42,7 @@
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Login</a></li>
+                        <li><a routerLink="/login">Login</a></li>
                         <li><a href="#">Sign Up</a></li>
                     </ul>
                 </li>
@@ -52,68 +53,3 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<style>
-
-body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .logo {
-    position:absolute;
-    top:10px; 
-    left:10px;
-    width:40px;
-    height:40px;
-    overflow:hidden;
-  }
-  /* ~~ Top Navigation Bar ~~ */
-  
-  #navigation-container {
-    width: 1200px;
-    margin: 0 auto;
-    height: 70px;
-  }
-  
-  .navigation-bar {
-    background-color: #352d2f;
-    height: 70px;
-    width: 100%;
-    text-align:center;
-  }
-  .navigation-bar img{
-  float:left;
-  }
-  .navigation-bar ul {
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
-    display:inline-block;
-    vertical-align:top;
-  }
-  
-  .navigation-bar li {
-    list-style-type: none;
-    padding: 0px;
-    height: 24px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-    display: inline;
-  }
-  
-  .navigation-bar li a {
-    color: black;
-    font-size: 16px;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    line-height: 70px;
-    padding: 5px 15px;
-    opacity: 0.7;
-  }
-  
-  #menu {
-    float: right;
-  }
-
-</style>
