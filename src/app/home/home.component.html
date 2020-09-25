@@ -12,8 +12,10 @@
           <div class="card col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
             <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Welcome to Co'Work! </h1>
             <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
-            <h4 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s">Whether you’re an established enterprise or 
-              a growing startup, discover flexible spaces and solutions to move your business forward.</h4>
+            <h4 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s"><p>Co'Work is a company that provides shared workspaces 
+              for technology startups and services for other enterprises or entrepreneurs.</p>
+              <p>Whether you’re an established enterprise or a growing startup, discover flexible spaces and solutions 
+                to move your business forward.</p></h4>
             <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInLeft" data-wow-delay="0.3s">Learn
               more</a>
           </div>
@@ -22,34 +24,8 @@
           <div class="col-md-6 col-xl-5 mb-4">
             <!--Form-->
             <mdb-card class="wow fadeInRight" data-wow-delay="0.3s">
-              <mdb-card-body>
-                <!--Header-->
-                <div class="text-center">
-                  <h3 class="white-text">
-                    <mdb-icon fas icon="user" class="white-text"></mdb-icon> Sign in</h3>
-                  <hr class="hr-light">
-                </div>
-                <!--Body-->
-                <div class="md-form">
-                  <mdb-icon fas icon="user" class="prefix white-text active"></mdb-icon>
-                  <input type="text" id="form3" class="text-white form-control" mdbInput>
-                  <label for="form3" class="text-white">Your name</label>
-                </div>
-                <div class="md-form">
-                  <mdb-icon fas icon="envelope" class="prefix white-text active"></mdb-icon>
-                  <input type="email" id="form2" class="text-white form-control" mdbInput>
-                  <label for="form2" class="text-white">Your email</label>
-                </div>
-                <div class="md-form">
-                  <mdb-icon fas icon="lock" class="prefix text-white active"></mdb-icon>
-                  <input type="password" id="form4" class="text-white form-control" mdbInput>
-                  <label for="form4" class="text-white">Your password</label>
-                </div>
-                <div class="text-center mt-4">
-                  <button mdbBtn color="blue" mdbWavesEffect>Sign in</button>
-                </div>
-                <hr class="hr-light">
-              </mdb-card-body>
+
+              <app-login></app-login>
               <div class="text-center mt-4">
                 <h4 class="white-text">
                   Don't have an account?
