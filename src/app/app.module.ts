@@ -11,6 +11,7 @@ import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,
