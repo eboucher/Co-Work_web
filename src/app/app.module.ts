@@ -1,19 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer';
+import { NavbarComponent } from './navbar';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { LocationsComponent } from './locations/locations.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LocationComponent } from './location/location.component';
+import { LocationsComponent } from './locations';
+import { LocationComponent } from './location';
 
 @NgModule({
   declarations: [
