@@ -13,6 +13,7 @@ import { RegisterComponent } from './register';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LocationsComponent } from './locations/locations.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     RegisterComponent,
     LocationsComponent,
+    LocationComponent,
   ],
   imports: [
     BrowserModule,
