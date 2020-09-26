@@ -1,47 +1,53 @@
-<!-- Navigation bar -->
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-<nav class="navbar navbar-expand-sm navbar-light bg-faded">
-    <div class="col-lg-12">
-        <a class="navbar-brand" href="#"></a>
-        <!-- LOGO NOT WORKING, CAN'T FIX SIZE DUE TO UNRECOGNIZED CSS, TODO -->
-        <!-- <img src="../../assets/cowork-logo_2.png" id="logo"> -->
+    <!-- LOGO NOT WORKING, CAN'T FIX SIZE DUE TO UNRECOGNIZED CSS, TODO -->
+    <!-- <img src="../../assets/cowork-logo_2.png" id="logo"> -->
 
-        <div class="navigation-container" id="mobile_menu">
-            <ul class="nav navbar-nav">
-                <li class="active"><a routerLink="/" routerLinkActive="active">Home</a></li>
-                <li class="active"><a routerLink="/locations" routerLinkActive="active">Locations</a></li>
-                <li class="active"><a routerLink="/" routerLinkActive="active">Workspace</a></li>
-                <li class="active"><a routerLink="/" routerLinkActive="active">Entreprise</a></li>
-                <li class="active"><a routerLink="/" routerLinkActive="active">Ideas</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                 <!-- Dropdown -->
-                <li class="nav-item dropdown" dropdown>
-                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    Basic dropdown<span class="caret"></span></a>
-                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
-                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
-                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
-                        <div class="divider dropdown-divider"></div>
-                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
-                    </div>
-                </li>
-
-                <li><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up</a>
-                    <ul class="dropdown-menu">
-                        <li><a routerLink="/login">Login</a></li>
-                        <li><a routerLink="/register">Sign Up</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Co'Work</a></mdb-navbar-brand>
+  
+    <!-- Collapsible content -->
+    <links>
+  
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link waves-light" routerLink="/" routerLinkActive="active" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/locations" routerLinkActive="active">Locations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Workspace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Services</a>
+        </li>
+  
+      </ul>
+      <!-- Links -->
+  
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect routerLink="/" routerLinkActive="active">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <div class="btn-group" mdbDropdown>
+              <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
+              <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+                <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Log In</a>
+                <a class="dropdown-item" routerLink="/locations" routerLinkActive="active">Sign Up</a>
+                <div class="divider dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+  
+  </mdb-navbar>
+  <!--/.Navbar-->
