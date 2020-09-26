@@ -12,6 +12,7 @@ import { RegisterComponent } from './register';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LocationsComponent } from './locations/locations.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LocationsComponent } from './locations/locations.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

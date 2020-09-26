@@ -19,6 +19,19 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                 <!-- Dropdown -->
+                <li class="nav-item dropdown" dropdown>
+                    <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    Basic dropdown<span class="caret"></span></a>
+                    <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+                        <div class="divider dropdown-divider"></div>
+                        <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+                    </div>
+                </li>
+
                 <li><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up</a>
                     <ul class="dropdown-menu">
                         <li><a routerLink="/login">Login</a></li>
