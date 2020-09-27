@@ -41,9 +41,9 @@
             <div class="btn-group" mdbDropdown>
               <mdb-icon fas icon="user" mdbDropdownToggle></mdb-icon>
               <div class="dropdown-menu dropdown-menu-right dropdown-primary">
-                <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Log In</a>
-                <a class="dropdown-item" routerLink="/locations" routerLinkActive="active">Sign Up</a>
-                <div class="divider dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="/login" routerLinkActive="active" *ngIf="!user">Log In</a>
+                <a class="dropdown-item" routerLink="/locations" routerLinkActive="active" *ngIf="!user">Sign Up</a>
+                <div class="divider dropdown-divider" *ngIf="!user"></div>
                 <a class="dropdown-item" *ngIf="user" (click)="logout()">Logout</a>
               </div>
             </div>

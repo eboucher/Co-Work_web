@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   user: User;
 
   constructor(private accountService: AccountService) {
-    this.user = this.accountService.userValue;
   }
 
   ngOnInit(): void {
