@@ -3,7 +3,7 @@
   <!-- Full Page Intro -->
   <div class="view" style="background-image: url('https://coworkinginsights.com/wp-content/uploads/2019/01/32836851_2054902378099864_3414552721770938368_o.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
-    <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+    <div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="!user">
       <!-- Content -->
       <div class="container">
         <!--Grid row-->
@@ -36,6 +36,25 @@
       <!-- Content -->
     </div>
     <!-- Mask & flexbox options-->
+
+
+    <div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="user">
+      <!-- Content -->
+      <div class="card col-md-6 mb-5 mt-md-0 mt-5 white-text text-center text-md-left">
+        <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">
+          Welcome back to Co'Work, {{user.firstName}}!
+        </h1>
+        <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+        <h4 class="mb-3 wow fadeInLeft" data-wow-delay="0.3s"><p>Navigate through the website to find workspaces, 
+          book your special place, organize meetings and more.</p>
+          <p>Whether you’re an established enterprise or a growing startup, discover flexible spaces and solutions 
+            to move your business forward.</p></h4>
+        <a mdbBtn color="white" outline="true" mdbWavesEffect class="wow fadeInLeft" data-wow-delay="0.3s">
+          Go to Locations</a>
+      </div>
+      <!-- Content -->
+    </div>
+
   </div>
   <!-- Full Page Intro -->
 </header>

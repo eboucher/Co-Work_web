@@ -7,21 +7,23 @@ import { HomeComponent } from './home';
 import { LocationsComponent } from './locations';
 import { LocationComponent } from './location';
 
+import { AuthGuard } from './_helpers';
+
+const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
+
 const routes: Routes = [
+  { path: 'account', loadChildren: accountModule },
   { path: '', component: HomeComponent,
     children: [
-      {
-        path: '',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
+      { path: '', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
     ]
   },
   { path: 'locations', component: LocationsComponent },
   { path: 'location', component: LocationComponent },
+
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 
 ];
 
