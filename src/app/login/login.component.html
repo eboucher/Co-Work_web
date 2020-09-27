@@ -1,5 +1,5 @@
 <!-- Material form login -->
-<form class="text-center border border-light p-5">
+<form class="text-center border border-light p-5" [formGroup]="form" (ngSubmit)="onSubmit()">
   <!--Header-->
   <div class="text-center">
     <h3 class="white-text">Log in</h3>
@@ -7,15 +7,37 @@
   </div>
 
   <!-- Username -->
-  <input type="text" id="defaultRegisterFormUserName" class="form-control mb-4" placeholder="Username">
+  <!-- The tag formControlName="username" seems to be causing problems with my MDB design framework -->
+  <input type="text" 
+  id="defaultRegisterFormUserName" 
+  class="form-control mb-4"
+  formControlName="username" 
+  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" 
+  placeholder="Username">
+  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required">Username is required</div>
+  </div>
 
   <!-- Password -->
-  <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <!-- The tag formControlName="password" seems to be causing problems with my MDB design framework -->
+  <input type="password" 
+  id="defaultRegisterFormPassword" 
+  formControlName="password"
+  class="form-control" 
+  placeholder="Password"
+  aria-describedby="defaultRegisterFormPasswordHelpBlock"
+  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
   <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
   </small>
+  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+  </div>
 
   <!-- Log in button -->
-  <button mdbBtn color="info" block="true" class="my-4" type="submit">Log in</button>
+  <button mdbBtn [disabled]="loading" color="info" block="true" class="my-4" type="submit">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    Log in
+  </button>
 
   <hr>
 
