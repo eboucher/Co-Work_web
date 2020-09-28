@@ -7,6 +7,7 @@ import { HomeComponent } from './home';
 import { LocationsComponent } from './locations';
 import { LocationComponent } from './location';
 import { PlansComponent } from './plans';
+import { ContactComponent } from './contact';
 
 import { AuthGuard } from './_helpers';
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'locations', component: LocationsComponent },
   { path: 'location', component: LocationComponent },
   { path: 'plans', component: PlansComponent },
+  { path: 'contact', component: ContactComponent },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

@@ -24,6 +24,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { PlansComponent } from './plans';
     LocationsComponent,
     LocationComponent,
     AlertComponent,
-    PlansComponent
+    PlansComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
