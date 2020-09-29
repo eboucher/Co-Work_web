@@ -5,6 +5,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LocationsModule } from './locations';
 import { AppComponent } from './app.component';
 
 import { FooterComponent } from './footer';
@@ -12,8 +13,6 @@ import { NavbarComponent } from './navbar';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
-import { LocationsComponent } from './locations';
-import { LocationComponent } from './location';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -34,8 +33,6 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    LocationsComponent,
-    LocationComponent,
     AlertComponent,
     PlansComponent,
     ContactComponent
@@ -43,6 +40,7 @@ import { ContactComponent } from './contact/contact.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    LocationsModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
