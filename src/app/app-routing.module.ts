@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
 import { HomeComponent } from './home';
-//import { LocationsComponent } from './locations';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
@@ -19,12 +18,11 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
     ]
   },
-  //{ path: 'locations', component: LocationsComponent },
   { path: 'plans', component: PlansComponent },
   { path: 'contact', component: ContactComponent },
 
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  //{ path: '**', redirectTo: '' }
 
 ];
 
