@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { LocationsListComponent } from './locations-list';
+import { LocationListComponent } from './location-list';
 import { LocationDetailComponent } from './location-detail';
 
 import { LocationsRoutingModule } from './locations-routing.module';
-
 
 
 @NgModule({
@@ -16,7 +15,7 @@ import { LocationsRoutingModule } from './locations-routing.module';
     LocationsRoutingModule
   ],
   declarations: [
-    LocationsListComponent,
+    LocationListComponent,
     LocationDetailComponent
   ]
 })

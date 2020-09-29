@@ -9,6 +9,7 @@ import { PlansComponent } from './plans';
 import { ContactComponent } from './contact';
 
 import { AuthGuard } from './_helpers';
+import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
@@ -30,7 +31,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(
+      routes,
+      {
+        enableTracing: false, // <-- debugging purposes only
+        preloadingStrategy: SelectivePreloadingStrategyService,
+      }
+    )
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

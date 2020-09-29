@@ -1,0 +1,9 @@
+<h2>LOCATIONS</h2>
+<ul class="locations">
+  <li *ngFor="let location of locations$ | async"
+    [class.selected]="location.locationID === selectedId">
+    <a [routerLink]="['/location', location.locationID]">
+      <span class="badge">{{ location.locationID }}</span>{{ location.name }}
+    </a>
+  </li>
+</ul>
