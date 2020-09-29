@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,6 +43,7 @@ import { ContactComponent } from './contact/contact.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     LocationsModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
@@ -55,7 +57,7 @@ import { ContactComponent } from './contact/contact.component';
     // provider used to create fake backend
     fakeBackendProvider
 ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
   // Diagnostic only: inspect router configuration

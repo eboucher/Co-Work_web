@@ -7,8 +7,6 @@ import { HomeComponent } from './home';
 //import { LocationsComponent } from './locations';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact';
-
-import { AuthGuard } from './_helpers';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
@@ -31,7 +29,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(
+  imports: [
+    RouterModule.forRoot(
       routes,
       {
         enableTracing: false, // <-- debugging purposes only
@@ -39,6 +38,8 @@ const routes: Routes = [
       }
     )
   ],
-  exports: [RouterModule]
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }

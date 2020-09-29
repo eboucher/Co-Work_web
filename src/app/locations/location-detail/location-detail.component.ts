@@ -28,12 +28,8 @@ export class LocationDetailComponent implements OnInit {
     );
   }
 
-  gotoLocations(location: Location) {
-    const locationId = location ? location.locationID : null;
-    // Pass along the location id if available
-    // so that the LocationList component can select that location.
-    // Include a junk 'foo' property for fun.
+  gotoLocations() {
     console.log("Bonjour à tous !")
-    this.router.navigate(['/locations', { id: locationId, foo: 'foo' }]);
+    this.router.navigate(['/locations']);
   }
 }
