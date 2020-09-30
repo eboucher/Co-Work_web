@@ -10,11 +10,11 @@ import { BookingService } from '../booking.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-first-phase',
-  templateUrl: './first-phase.component.html',
-  styleUrls: ['./first-phase.component.scss']
+  selector: 'app-book',
+  templateUrl: './book.component.html',
+  styleUrls: ['./book.component.scss']
 })
-export class FirstPhaseComponent implements OnInit, AfterViewChecked {
+export class BookComponent implements OnInit, AfterViewChecked {
 
 
   profileForm = new FormGroup({

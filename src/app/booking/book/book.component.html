@@ -16,13 +16,17 @@
             <!-- Pills navs -->
             <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
               <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">1. Billing</a>
+                <!-- href="#tabCheckoutBilling123" -->
+                <a class="nav-link active" data-toggle="tab" role="tab">1. Billing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabCheckoutAddons123" role="tab">2. Addons</a>
+                <!-- href="#tabCheckoutAddons123" -->
+                <a class="nav-link" data-toggle="tab" role="tab"
+                [routerLink]="['/second-phase']" routerLinkActive="active" mdbWavesEffect>2. Addons</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabCheckoutPayment123" role="tab">3. Payment</a>
+                <!-- href="#tabCheckoutPayment123" -->
+                <a class="nav-link" data-toggle="tab" role="tab">3. Payment</a>
               </li>
             </ul>
 

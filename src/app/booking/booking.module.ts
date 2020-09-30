@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FirstPhaseComponent } from './first-phase';
+import { BookComponent } from './book';
 import { SecondPhaseComponent } from './second-phase';
 import { ThirdPhaseComponent } from './third-phase';
 
@@ -13,7 +13,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
-    FirstPhaseComponent, 
+    BookComponent, 
     SecondPhaseComponent, 
     ThirdPhaseComponent
   ],
