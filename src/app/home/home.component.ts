@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   user: User;
 
-  constructor(private accountService: AccountService) {
+  constructor(public accountService: AccountService) {
   }
 
   ngOnInit(): void {

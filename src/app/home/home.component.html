@@ -4,7 +4,7 @@
   <div class="view" style="background-image: url('https://coworkinginsights.com/wp-content/uploads/2019/01/32836851_2054902378099864_3414552721770938368_o.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
 
-    <div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="!user; then thenBlock else elseBlock"></div>
+    <div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="!this.accountService.userValue; then thenBlock else elseBlock"></div>
     <ng-template #thenBlock>
       <br>
       <br>

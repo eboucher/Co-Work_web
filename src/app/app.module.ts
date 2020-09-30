@@ -27,6 +27,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
+import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ContactComponent } from './contact/contact.component';
     RegisterComponent,
     AlertComponent,
     PlansComponent,
-    ContactComponent
+    ContactComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
