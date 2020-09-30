@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { LocationsModule } from './locations';
+import { BookingModule } from './booking';
 import { AppComponent } from './app.component';
 
 import { FooterComponent } from './footer';
@@ -27,7 +28,6 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
-import { BookingComponent } from './booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +39,14 @@ import { BookingComponent } from './booking/booking.component';
     RegisterComponent,
     AlertComponent,
     PlansComponent,
-    ContactComponent,
-    BookingComponent
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     LocationsModule,
+    BookingModule,
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
