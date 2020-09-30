@@ -6,7 +6,6 @@ import { RegisterComponent } from './register';
 import { HomeComponent } from './home';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact';
-import { BookingComponent } from './booking';
 import { SelectivePreloadingStrategyService } from './selective-preloading-strategy.service';
 
 // const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
@@ -21,7 +20,6 @@ const routes: Routes = [
   },
   { path: 'plans', component: PlansComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'booking', component: BookingComponent },
 
   // otherwise redirect to home
   //{ path: '**', redirectTo: '' }
