@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FirstPhaseComponent } from './first-phase/first-phase.component';
-import { SecondPhaseComponent } from './second-phase/second-phase.component';
+import { FirstPhaseComponent } from './first-phase';
+import { SecondPhaseComponent } from './second-phase';
+import { ThirdPhaseComponent } from './third-phase';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +14,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     FirstPhaseComponent, 
-    SecondPhaseComponent
+    SecondPhaseComponent, 
+    ThirdPhaseComponent
   ],
   imports: [
     CommonModule,
