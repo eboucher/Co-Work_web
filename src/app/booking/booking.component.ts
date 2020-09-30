@@ -1,5 +1,7 @@
 import { AfterViewChecked, Component, OnInit } from '@angular/core';
 
+declare var $: any;
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
