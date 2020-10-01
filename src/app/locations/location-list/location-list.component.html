@@ -21,14 +21,14 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4"  *ngFor="let location of locations$ | async"
-          [class.selected]="location.locationID === selectedId">
+          [class.selected]="location._id === selectedId">
 
           <!--Card-->
           <div class="card">
 
             <!--Card image-->
             <div class="view overlay">
-              <img src="{{ location.avatar }}" class="card-img-top"
+              <img src="http://localhost:1337{{location.avatar.url}}" class="card-img-top"
                 alt="">
               <a href="https://mdbootstrap.com/education/tech-marketing/automated-app-introduction/" target="_blank">
                 <div class="mask rgba-white-slight"></div>
@@ -41,7 +41,7 @@
               <h4 class="card-title">{{ location.name }}</h4>
               <!--Text-->
               <p class="card-text">{{ location.description }}</p>
-              <a mdbBtn [routerLink]="['/location', location.locationID]" routerLinkActive="active" mdbWavesEffect
+              <a mdbBtn [routerLink]="['/location', location._id]" routerLinkActive="active" mdbWavesEffect
                 class="btn btn-primary btn-md" data-wow-delay="0.3s">See more
                 <i class="fas fa-play ml-2"></i>
               </a>

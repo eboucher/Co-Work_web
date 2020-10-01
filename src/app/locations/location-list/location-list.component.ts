@@ -18,7 +18,7 @@ import { Location } from '../location';
 export class LocationListComponent implements OnInit {
 
   locations$: Observable<Location[]>;
-  selectedId: number;
+  selectedId: string;
 
   //locations : any[] = data.locations;
 
@@ -31,10 +31,11 @@ export class LocationListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log("Bonjour Nathooon");
     this.locations$ = this.route.paramMap.pipe(
       switchMap(params => {
         // (+) before `params.get()` turns the string into a number
-        this.selectedId = +params.get('id');
+        this.selectedId = params.get('id');
         return this.service.getLocations();
       })
     );

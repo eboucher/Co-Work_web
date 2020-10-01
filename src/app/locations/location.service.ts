@@ -27,7 +27,7 @@ export class LocationService {
   getLocation(id: number | string) {
     return this.getLocations().pipe(
       // (+) before `id` turns the string into a number
-      map((locations: Location[]) => locations.find(location => location.locationID === +id))
+      map((locations: Location[]) => locations.find(location => location._id === id))
     );
   }
 }
