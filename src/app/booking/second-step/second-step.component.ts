@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 import { BookingService } from '../booking.service';
 
 @Component({
-  selector: 'app-second-phase',
-  templateUrl: './second-phase.component.html',
-  styleUrls: ['./second-phase.component.scss']
+  selector: 'app-second-step',
+  templateUrl: './second-step.component.html',
+  styleUrls: ['./second-step.component.scss']
 })
-export class SecondPhaseComponent implements OnInit {
+export class SecondStepComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,

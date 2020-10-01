@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookComponent } from './book';
-import { SecondPhaseComponent } from './second-phase';
-import { ThirdPhaseComponent } from './third-phase';
+import { FirstStepComponent } from './first-step';
+import { SecondStepComponent } from './second-step';
+import { ThirdStepComponent } from './third-step';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,8 +15,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 @NgModule({
   declarations: [
     BookComponent, 
-    SecondPhaseComponent, 
-    ThirdPhaseComponent
+    FirstStepComponent,
+    SecondStepComponent, 
+    ThirdStepComponent
   ],
   imports: [
     CommonModule,

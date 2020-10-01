@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import { BookingService } from '../booking.service';
 
 @Component({
-  selector: 'app-third-phase',
-  templateUrl: './third-phase.component.html',
-  styleUrls: ['./third-phase.component.scss']
+  selector: 'app-third-step',
+  templateUrl: './third-step.component.html',
+  styleUrls: ['./third-step.component.scss']
 })
-export class ThirdPhaseComponent implements OnInit {
+export class ThirdStepComponent implements OnInit {
 
 
   profileForm = new FormGroup({
