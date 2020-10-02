@@ -18,12 +18,12 @@
               <li class="nav-item">
                 <!-- href="#first-step" -->
                 <a class="nav-link active" data-toggle="tab" role="tab"
-                [routerLink]="['/book/first-step']" routerLinkActive="active" mdbWavesEffect>1. Billing</a>
+                [routerLink]="['/book/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
               </li>
               <li class="nav-item">
                 <!-- href="#second-step" -->
                 <a class="nav-link" data-toggle="tab" role="tab"
-                [routerLink]="['/book/second-step']" routerLinkActive="active" mdbWavesEffect>2. Addons</a>
+                [routerLink]="['/book/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
               </li>
               <li class="nav-item">
                 <!-- href="#third-step" -->
@@ -48,7 +48,7 @@
           <!--Grid column-->
           <div class="col-lg-4 mb-4">
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Place order</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="true">Place order</button>
 
             <!--Card-->
             <div class="card z-depth-0 border border-light rounded-0">
