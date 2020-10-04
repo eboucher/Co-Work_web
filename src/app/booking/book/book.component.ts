@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
@@ -15,6 +15,8 @@ declare var $: any;
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent implements OnInit, AfterViewChecked {
+
+  @Input() locationID: string;
 
 
   profileForm = new FormGroup({
