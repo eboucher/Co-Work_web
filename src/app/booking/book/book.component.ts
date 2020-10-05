@@ -16,9 +16,6 @@ declare var $: any;
 })
 export class BookComponent implements OnInit, AfterViewChecked {
 
-  @Input() locationID: string;
-
-
   profileForm = new FormGroup({
   });
 
