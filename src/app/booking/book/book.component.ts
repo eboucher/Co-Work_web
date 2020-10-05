@@ -8,6 +8,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BookingService } from '../booking.service';
 import { LocationService } from '@app/locations/location.service';
 
+import { Location } from '@app/locations/location';
+
 declare var $: any;
 
 @Component({
@@ -20,15 +22,15 @@ export class BookComponent implements OnInit {
 
   locationID: string;
 
-  location$: any;
+  location$: Observable<Location>;
 
   profileForm = new FormGroup({
   });
 
   constructor(
-    private service: BookingService,
+    private bookingService: BookingService,
     private route: ActivatedRoute,
-    private locService: LocationService,
+    private locationService: LocationService,
   ) {}
 
   // ngAfterViewChecked(): void {
@@ -40,8 +42,9 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.location$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-        this.locService.getLocation(params.get('_id')))
+        this.locationService.getLocation(params.get('_id')))
     );
+    console.log("this.location$ = " + this.location$);
   }
 
 }
