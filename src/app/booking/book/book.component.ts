@@ -1,11 +1,14 @@
-import { AfterViewChecked, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { first, switchMap } from 'rxjs/operators';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { BookingService } from '../booking.service';
+import { LocationService } from '@app/locations/location.service';
+
+import { Location } from '@app/locations/location';
 
 declare var $: any;
 
@@ -14,24 +17,34 @@ declare var $: any;
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.scss']
 })
-export class BookComponent implements OnInit, AfterViewChecked {
+//, AfterViewChecked
+export class BookComponent implements OnInit {
 
+  locationID: string;
+
+  location$: Observable<Location>;
 
   profileForm = new FormGroup({
   });
 
   constructor(
-    private service: BookingService,
-    private route: ActivatedRoute
+    private bookingService: BookingService,
+    private route: ActivatedRoute,
+    private locationService: LocationService,
   ) {}
 
-  ngAfterViewChecked(): void {
-    // Data Picker Initialization
-    // @ts-ignore
-    $('.datepicker').datepicker({ inline: true });
-  }
-  
+  // ngAfterViewChecked(): void {
+  //   // Data Picker Initialization
+  //   // @ts-ignore
+  //   $('.datepicker').datepicker({ inline: true });
+  // }
+
   ngOnInit() {
+    this.location$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.locationService.getLocation(params.get('_id')))
+    );
+    console.log("this.location$ = " + this.location$);
   }
 
 }

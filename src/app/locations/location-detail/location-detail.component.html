@@ -1,5 +1,5 @@
-<main class="mt-5 pt-5">
-  <div class="container" *ngIf="location$ | async as location">
+<main class="mt-5 pt-5" *ngIf="location$ | async as location">
+  <div class="container">
 
     <mdb-card cascade="true" wider="true" reverse="true" class="my-4">
       <!--Card image-->
@@ -146,7 +146,7 @@
 
   <div class="container">
       <button class="col-md-12" mdbBtn type="button" gradient="blue" rounded="true"
-      [routerLink]="['/book']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
+      [routerLink]="['/book/'+location._id+'/first-step']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
         Book a time slot</button>
   </div>
 

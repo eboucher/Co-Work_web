@@ -24,7 +24,7 @@ export class LocationService {
     return this.http.get<Location[]>(this._url);
   }
 
-  getLocation(id: number | string) {
+  getLocation(id: number | string): Observable<Location> {
     return this.getLocations().pipe(
       // (+) before `id` turns the string into a number
       map((locations: Location[]) => locations.find(location => location._id === id))

@@ -29,6 +29,8 @@ import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
 
+import * as $ from 'jquery'
+
 @NgModule({
   declarations: [
     AppComponent,
