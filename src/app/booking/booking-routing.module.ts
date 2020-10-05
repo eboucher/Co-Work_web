@@ -7,7 +7,7 @@ import { SecondStepComponent } from './second-step';
 import { ThirdStepComponent } from './third-step';
 
 const bookingRoutes: Routes = [
-  { path: 'book',  component: BookComponent,
+  { path: 'book/:_id',  component: BookComponent,
     data: { animation: 'book' },
     children: [
       { path: 'first-step', component: FirstStepComponent, data: { animation: 'first-step' } },

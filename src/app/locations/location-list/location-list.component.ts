@@ -31,7 +31,6 @@ export class LocationListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log("Bonjour Nathooon");
     this.locations$ = this.route.paramMap.pipe(
       switchMap(params => {
         // (+) before `params.get()` turns the string into a number

@@ -29,7 +29,6 @@ export class LocationDetailComponent implements OnInit {
   }
 
   gotoLocations() {
-    console.log("Bonjour à tous !");
     this.router.navigate(['/locations']);
   }
 }

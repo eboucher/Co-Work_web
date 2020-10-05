@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" *ngIf="location$ | async as location">
 
 
   <!--Section: Content-->
@@ -18,17 +18,17 @@
               <li class="nav-item">
                 <!-- href="#first-step" -->
                 <a class="nav-link active" data-toggle="tab" role="tab"
-                [routerLink]="['/book/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
+                [routerLink]="['/book/'+locationID+'/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
               </li>
               <li class="nav-item">
                 <!-- href="#second-step" -->
                 <a class="nav-link" data-toggle="tab" role="tab"
-                [routerLink]="['/book/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
+                [routerLink]="['/book/'+locationID+'/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
               </li>
               <li class="nav-item">
                 <!-- href="#third-step" -->
                 <a class="nav-link" data-toggle="tab" role="tab"
-                [routerLink]="['/book/third-step']" routerLinkActive="active" mdbWavesEffect>3. Payment</a>
+                [routerLink]="['/book/'+locationID+'/third-step']" routerLinkActive="active" mdbWavesEffect>3. Payment</a>
               </li>
             </ul>
 
@@ -61,7 +61,7 @@
 
                 <dl class="row">
                   <dd class="col-sm-8">
-                    Meeting room
+                    Meeting room {{location$.name}}
                   </dd>
                   <dd class="col-sm-4">
                     20 €
