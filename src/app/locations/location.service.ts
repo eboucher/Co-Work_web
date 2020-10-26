@@ -13,9 +13,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LocationService {
 
+  location: any;
+
   constructor(private http: HttpClient) { }
 
-  private _url : string = 'http://localhost:1337/workspaces'
+  private _url : string = 'http://localhost:1337/workspaces/'
+
+  getLocationByID(id: string) : any {
+    return this.http.get<Location[]>(this._url+id)
+      .pipe(map(resp => {
+        this.location = resp;
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        return resp;
+      }));
+  }
 
   getLocations(): Observable<Location[]> {
     // TODO: send the message _after_ fetching the locations

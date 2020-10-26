@@ -22,7 +22,7 @@ export class BookComponent implements OnInit {
 
   locationID: string;
 
-  location$: Observable<Location>;
+  location: any;
 
   profileForm = new FormGroup({
   });
@@ -40,11 +40,18 @@ export class BookComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.location$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.locationService.getLocation(params.get('_id')))
-    );
-    console.log("this.location$ = " + this.location$);
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.locationID = params.get('_id');
+      this.locationService.getLocationByID(this.locationID).pipe(first())
+        .subscribe(
+          data => {
+            console.log("this.location = " + JSON.stringify(data));
+            this.location = data;
+          },
+          error => {
+            console.log(error);
+          });
+    });
   }
 
 }
