@@ -1,5 +1,5 @@
 <!--Panel 1-->
-<div class="tab-pane fade in show active" id="first-step" role="tabpanel">
+<div class="tab-pane fade in show active" id="first-step" role="tabpanel" *ngIf="location">
   <!--Card content-->
   <form>
     <!--Location-->
@@ -8,14 +8,14 @@
       type="text"
       id="email"
       class="form-control mb-4"
-      placeholder="Co'Work Bastille"
+      placeholder="Co'Work {{location.name}}"
       [disabled]="true"
     />
 
     <!--Room-->
     <div class="mb-4">
       <label for="country">Room type</label>
-      <select class="custom-select d-block w-100" id="country" required>
+      <select class="custom-select d-block w-100" id="room_type" required>
         <option value="">Choose...</option>
         <option>Meeting room</option>
         <option>Call room</option>
@@ -24,6 +24,12 @@
       <div class="invalid-feedback">
         Please select a room type.
       </div>
+    </div>
+
+    <!--Date-->
+    <div class="mb-4">
+      <label for="date">Date</label>
+      <input type="date" id="date" class="form-control" mdbInput>
     </div>
 
     <!--Grid row-->
@@ -55,25 +61,12 @@
       <!--Grid column-->
     </div>
     <!--Grid row-->
-
-    <hr />
-
-    <div class="mb-1">
-      <input
-        type="checkbox"
-        class="form-check-input filled-in"
-        id="chekboxRules"
-      />
-      <label class="form-check-label" for="chekboxRules"
-        >I accept the terms and conditions</label
-      >
-    </div>
-
-    <hr />
+    
+    <hr/>
 
     <a
       mdbBtn
-      [routerLink]="['/book/second-step']"
+      [routerLink]="['/book/'+location._id+'/second-step']"
       routerLinkActive="active"
       mdbWavesEffect
       class="btn btn-primary btn-lg btn-block"

@@ -1,4 +1,4 @@
-<div class="container mt-5" *ngIf="location$ | async as location">
+<div class="container mt-5" *ngIf="location">
 
 
   <!--Section: Content-->
@@ -58,7 +58,6 @@
                 <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">Summary</h4>
 
                 <hr>
-
                 <dl class="row">
                   <dd class="col-sm-8">
                     Meeting room {{location.name}}
@@ -69,13 +68,16 @@
                 </dl>
 
                 <hr>
+                <dl class="row">
+                  <dd class="col-sm-8">
+                    booking.start = {{booking.start}}
+                  </dd>
+                </dl>
 
               </div>
 
             </div>
             <!--/.Card-->
-
-
 
           </div>
           <!--Grid column-->

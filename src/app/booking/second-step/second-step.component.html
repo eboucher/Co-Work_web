@@ -56,13 +56,16 @@
     </div>
     <!--Grid column-->
 
+    {{booking.start}}
+    <button (click)="newBooking()">Edit booking</button>
+
   </div>
   <!--Grid row-->
 
   <hr class="mb-4">
 
 
-  <a mdbBtn [routerLink]="['/book/third-step']" routerLinkActive="active" mdbWavesEffect
+  <a mdbBtn [routerLink]="['/book/'+location._id+'/third-step']" routerLinkActive="active" mdbWavesEffect
   class="btn btn-primary btn-lg btn-block" data-wow-delay="0.3s">Next step
   </a>
 

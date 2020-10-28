@@ -5,6 +5,7 @@ import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { BookingService } from '../booking.service';
+import { LocationService } from '@app/locations/location.service';
 
 @Component({
   selector: 'app-third-step',
@@ -17,13 +18,16 @@ export class ThirdStepComponent implements OnInit {
   profileForm = new FormGroup({
   });
 
+  location: any;
+
   constructor(
+    private bookingService: BookingService,
     private route: ActivatedRoute,
-    private router: Router,
-    private service: BookingService
+    private locationService: LocationService,
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.location = this.locationService.location;
   }
 
 }
