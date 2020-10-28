@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Location } from './location';
-import { LOCATIONS } from './mock-locations';
 import { MessageService } from '../message.service';
 import { HttpClient } from '@angular/common/http';
 

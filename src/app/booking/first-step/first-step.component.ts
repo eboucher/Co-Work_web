@@ -11,7 +11,6 @@ import { BookingService } from '../booking.service';
 })
 export class FirstStepComponent implements OnInit {
 
-  locationID: string;
   location: any;
 
   constructor(
