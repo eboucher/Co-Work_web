@@ -1,10 +1,12 @@
+import { User } from '@app/_models';
+
 export interface Booking {
   start: string,
   end: string,
-  user: string,
-  call_room: string,
-  cozy_louge: string,
-  meeting_room: string,
+  user: User,
+  call_room: string, //CallRoom
+  cozy_louge: string, //CozyLouge
+  meeting_room: string, //MeetingRoom
   mealTray: true,
   laptop: true,
   date: string,

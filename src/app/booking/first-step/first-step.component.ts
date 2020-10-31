@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { LocationService } from '@app/locations/location.service';
 import { first } from 'rxjs/operators';
+import { Booking } from '../booking';
 import { BookingService } from '../booking.service';
 
 @Component({
@@ -12,14 +13,15 @@ import { BookingService } from '../booking.service';
 export class FirstStepComponent implements OnInit {
 
   location: any;
+  booking: Booking;
 
   constructor(
     private bookingService: BookingService,
-    private route: ActivatedRoute,
     private locationService: LocationService,
   ) {}
 
   ngOnInit() {
     this.location = this.locationService.location;
+    this.bookingService.currentBooking.subscribe(booking => this.booking = booking);
   }
 }

@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   gotoLocations() {
     // Pass along the location id if available
     // so that the LocationList component can select that location.
-    console.log("Bonjour à tous !")
+    //("Bonjour à tous !")
     this.router.navigate(['/locations', {}]);
   }
 

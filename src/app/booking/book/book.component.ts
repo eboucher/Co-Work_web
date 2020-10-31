@@ -10,6 +10,8 @@ import { LocationService } from '@app/locations/location.service';
 
 import { Location } from '@app/locations/location';
 import { Booking } from '../booking';
+import { User } from '@app/_models';
+import { AccountService } from '@app/_services';
 
 declare var $: any;
 
@@ -22,16 +24,16 @@ declare var $: any;
 export class BookComponent implements OnInit {
 
   locationID: string;
-  location: any;
+  location: Location;
   booking: Booking;
 
-  profileForm = new FormGroup({
-  });
+  profileForm = new FormGroup({});
 
   constructor(
     private data: BookingService,
     private route: ActivatedRoute,
     private locationService: LocationService,
+    public accountService: AccountService
   ) {}
 
   // ngAfterViewChecked(): void {
@@ -40,16 +42,15 @@ export class BookComponent implements OnInit {
   //   $('.datepicker').datepicker({ inline: true });
   // }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    //console.log("this.user = " + this.user.username);
     this.data.currentBooking.subscribe(booking => this.booking = booking)
-
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.locationID = params.get('_id');
       this.locationService.getLocationByID(this.locationID).pipe(first())
         .subscribe(
           data => {
-            console.log("this.location = " + JSON.stringify(data));
+            //console.log("this.location = " + JSON.stringify(data));
             this.location = data;
           },
           error => {

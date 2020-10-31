@@ -26,7 +26,7 @@ export class LocationDetailComponent implements OnInit {
       switchMap((params: ParamMap) =>
         this.service.getLocation(params.get('id')))
     );
-    console.log("this.location$ = " + this.location$);
+    //console.log("this.location$ = " + this.location$);
   }
 
   gotoLocations() {
