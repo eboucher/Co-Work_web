@@ -12,10 +12,8 @@ export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
 
-    constructor(
-        private router: Router,
-        private http: HttpClient
-    ) {
+    constructor(private router: Router, private http: HttpClient) 
+    {
         this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
     }
@@ -30,6 +28,7 @@ export class AccountService {
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('jwt', user.jwt);
                 this.userSubject.next(user);
                 return user;
             }));

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Location } from './location';
+import { Location } from '@app/_models/location';
 import { MessageService } from '../message.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,7 +22,6 @@ export class LocationService {
     return this.http.get<Location[]>(this._url+id)
       .pipe(map(resp => {
         this.location = resp;
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
         return resp;
       }));
   }

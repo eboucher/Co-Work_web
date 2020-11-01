@@ -25,7 +25,6 @@ import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
 
@@ -57,9 +56,6 @@ import * as $ from 'jquery'
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
-    fakeBackendProvider
 ],
   bootstrap: [ AppComponent ]
 })

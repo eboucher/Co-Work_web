@@ -1,9 +1,12 @@
-﻿export class User {
+﻿import { Subscription } from './subscription';
+
+export class User {
+    jwt: string;
     user: any;
     id: string;
     username: string;
     password: string;
-    FirstName: string;
-    LastName: string;
-    token: string;
+    firstName: string;
+    lastName: string;
+    subscription: Subscription;
 }

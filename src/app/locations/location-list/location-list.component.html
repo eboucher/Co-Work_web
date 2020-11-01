@@ -30,7 +30,7 @@
             <div class="view overlay">
               <img src="http://localhost:1337{{location.avatar.url}}" class="card-img-top"
                 alt="">
-              <a href="https://mdbootstrap.com/education/tech-marketing/automated-app-introduction/" target="_blank">
+              <a [routerLink]="['/location', location._id]" routerLinkActive="active">
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>

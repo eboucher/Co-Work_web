@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
 import { LocationService } from '../location.service';
-import { Location } from '../location';
+import { Location } from '@app/_models/location';
 
 @Component({
   selector: 'app-location-list',

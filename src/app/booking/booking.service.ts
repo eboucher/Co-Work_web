@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MessageService } from '../message.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { Booking } from './booking';
+import { Booking } from '../_models/booking';
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
 
@@ -15,17 +15,13 @@ export class BookingService implements OnInit {
 
   private booking = new BehaviorSubject<Booking>(
     {
-      start: "14:00",
-      end: "16:00",
+      date: "",
+      start: "",
+      end: "",
       user: this.accountService.userValue.user,
-      call_room: "Number 1",
-      cozy_louge: "null",
-      meeting_room: "null",
-      mealTray: true,
-      laptop: true,
-      date: "29/10/2020",
-      created_by: "someone",
-      updated_by: "also someone"
+      room: null,
+      mealTray: false,
+      laptop: false,
     },
   );
   currentBooking = this.booking.asObservable();

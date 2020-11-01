@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { BookingService } from '../booking.service';
 import { LocationService } from '@app/locations/location.service';
-import { Booking } from '../booking';
+import { Booking } from '../../_models/booking';
 
 @Component({
   selector: 'app-second-step',
@@ -18,20 +18,18 @@ export class SecondStepComponent implements OnInit {
   booking: Booking;
 
   constructor(
-    private data: BookingService,
     private bookingService: BookingService,
-    private route: ActivatedRoute,
     private locationService: LocationService,
   ) {}
 
   ngOnInit() {
-    this.data.currentBooking.subscribe(booking => this.booking = booking)
     this.location = this.locationService.location;
+    this.bookingService.currentBooking.subscribe(booking => this.booking = booking);
   }
 
   newBooking() {
     this.booking.start = "17:30"
-    this.data.changeBooking(this.booking)
+    this.bookingService.changeBooking(this.booking)
   }
 
 }

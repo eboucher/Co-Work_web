@@ -8,8 +8,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BookingService } from '../booking.service';
 import { LocationService } from '@app/locations/location.service';
 
-import { Location } from '@app/locations/location';
-import { Booking } from '../booking';
+import { Location } from '@app/_models/location';
+import { Booking } from '../../_models/booking';
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
 
