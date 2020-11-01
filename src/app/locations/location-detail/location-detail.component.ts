@@ -4,6 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { LocationService } from '../location.service';
+import { Location } from '@app/_models/location';
 
 @Component({
   selector: 'app-location-detail',
