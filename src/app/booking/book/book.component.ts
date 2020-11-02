@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BookingService } from '../booking.service';
 import { LocationService } from '@app/locations/location.service';
 
-import { Location } from '@app/_models/location';
+import { Workspace } from '@app/_models/workspace';
 import { Booking } from '../../_models/booking';
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
@@ -24,7 +24,7 @@ declare var $: any;
 export class BookComponent implements OnInit {
 
   locationID: string;
-  location: Location;
+  location: Workspace;
   booking: Booking;
 
   profileForm = new FormGroup({});

@@ -15,6 +15,7 @@ export class FirstStepComponent implements OnInit {
 
   workspace: any;
   booking: Booking;
+  roomType: string;
 
   constructor(
     private bookingService: BookingService,
@@ -26,30 +27,37 @@ export class FirstStepComponent implements OnInit {
     this.bookingService.currentBooking.subscribe(booking => this.booking = booking);
   }
 
-  updateDate(newDate) {
+  setDate(newDate: string) {
     this.booking.date = newDate;
     console.log("this.booking.date = " + newDate);
   }
 
-  updateStart(newStart) {
+  setStart(newStart: string) {
     this.booking.start = newStart;
     console.log("this.booking.start = " + this.booking.start);
   }
 
-  updateEnd(newEnd) {
+  setEnd(newEnd: string) {
     this.booking.end = newEnd;
     console.log("this.booking.end = " + this.booking.end);
   }
 
-  pickRoom(roomType) {
-    console.log("Looking for " + roomType + " availability...");
+  setRoomType(roomType: string) {
+    this.roomType = roomType;
+    console.log("this.roomType = " + this.roomType);
+  }
+
+  pickRoom() {
+    console.log("The room is available.");
     for (let i = 0; (i < this.workspace.rooms.length) 
-        && this.workspace.rooms[i].roomType == roomType;
+        && (this.workspace.rooms[i].roomType == this.roomType);
         i++) 
     {
       if (this.workspace.rooms[i].isRoomAvailable(this.booking.date, 
         this.booking.start, this.booking.end)) {
-          // pick the room!
+          console.log("The room is available.");
+          this.booking.room = this.workspace.rooms[i];
+          console.log("this.booking.room = " + this.booking.room.name);
         }
     }
   }

@@ -15,7 +15,7 @@
     <!--Date-->
     <div class="mb-4">
       <label for="date">Date</label>
-      <input #date (change)="updateDate(date.value)" type="date" id="date" class="form-control" mdbInput>
+      <input #date (change)="setDate(date.value)" type="date" id="date" class="form-control" mdbInput>
     </div>
 
     <!--Grid row-->
@@ -24,11 +24,10 @@
       <div class="col-md-6 mb-4">
         <label for="input">Start</label>
         <input
-          #start (change)="updateStart(start.value)" 
+          #start (change)="setStart(start.value)" 
           type="time"
           id="input"
           class="form-control"
-          value="13:00"
           mdbInput
         />
       </div>
@@ -38,11 +37,10 @@
       <div class="col-md-6 mb-2">
         <label for="input">End</label>
         <input
-          #end (change)="updateEnd(end.value)" 
+          #end (change)="setEnd(end.value)" 
           type="time"
           id="input"
           class="form-control"
-          value="13:00"
           mdbInput
         />
       </div>
@@ -53,7 +51,7 @@
     <!--Room-->
     <div class="mb-4">
       <label for="country">Room type</label>
-      <select #roomType (change)="pickRoom(roomType.value)" class="custom-select d-block w-100" id="room_type" required>
+      <select #roomType (change)="setRoomType(roomType.value)" class="custom-select d-block w-100" id="room_type" required>
         <option value="">Choose...</option>
         <option>Meeting room</option>
         <option>Call room</option>
@@ -68,6 +66,7 @@
 
     <a
       mdbBtn
+      (click)="pickRoom()"
       [routerLink]="['/book/'+workspace._id+'/second-step']"
       routerLinkActive="active"
       mdbWavesEffect

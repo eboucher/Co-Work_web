@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { LocationService } from '../location.service';
-import { Location } from '@app/_models/location';
+import { Workspace } from '@app/_models/workspace';
 
 @Component({
   selector: 'app-location-detail',
@@ -12,7 +12,7 @@ import { Location } from '@app/_models/location';
   styleUrls: ['./location-detail.component.scss']
 })
 export class LocationDetailComponent implements OnInit {
-  location$: Observable<Location>;
+  location$: Observable<Workspace>;
 
   constructor(
     private route: ActivatedRoute,

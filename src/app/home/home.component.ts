@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.accountService.userValue;
+    console.log("this.user = " + JSON.stringify(this.user))
   }
 
 }

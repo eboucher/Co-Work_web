@@ -129,13 +129,13 @@
           </thead>
           <tbody>
             <tr>
-              <td>9 am to 8 pm</td>
-              <td>9 am to 8 pm</td>
-              <td>9 am to 8 pm</td>
-              <td>9 am to 8 pm</td>
-              <td>9 am to 8 pm</td>
-              <td>11 am to 8 pm</td>
-              <td>11 am to 8 pm</td>
+              <td>{{location.mondayOp}} to {{location.mondayCl}}</td>
+              <td>{{location.tuesdayOp}} to {{location.tuesdayCl}}</td>
+              <td>{{location.wednesdayOp}} to {{location.wednesdayCl}}</td>
+              <td>{{location.thursdayOp}} to {{location.thursdayCl}}</td>
+              <td>{{location.fridayOp}} to {{location.fridayCl}}</td>
+              <td>{{location.saturdayOp}} to {{location.saturdayCl}}</td>
+              <td>{{location.sundayOp}} to {{location.sundayCl}}</td>
             </tr>
           </tbody>
         </table>
@@ -146,7 +146,7 @@
 
   <div class="container">
       <button class="col-md-12" mdbBtn type="button" gradient="blue" rounded="true"
-      [routerLink]="['/book/'+location._id+'/first-step']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
+      [routerLink]="['/book/'+location.id+'/first-step']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
         Book a time slot</button>
   </div>
 

@@ -5,20 +5,25 @@ import { map } from 'rxjs/operators';
 import { MessageService } from '../message.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Booking } from '../_models/booking';
-import { User } from '@app/_models';
+import { Room, User } from '@app/_models';
 import { AccountService } from '@app/_services';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookingService implements OnInit {
 
+  private _url : string = 'http://localhost:1337/bookings/'
+
+  user: any = {firstName:"OUI", lastName:"NON", username:"hmmm"};
+
   private booking = new BehaviorSubject<Booking>(
     {
       date: "",
-      start: "",
-      end: "",
-      user: this.accountService.userValue.user,
+      start: null,
+      end: null,
+      user: this.accountService.userValue,
       room: null,
       mealTray: false,
       laptop: false,
@@ -29,14 +34,31 @@ export class BookingService implements OnInit {
   // ngOnInit somehow not executing
   ngOnInit(): void {
     console.log("booking = " + this.booking);
+    console.log("this.accountService.userValue = " + this.accountService.userValue);
   }
 
   constructor(private bookingService: MessageService, 
-              public accountService: AccountService) { }
+              public accountService: AccountService,
+              private http: HttpClient) { }
 
   changeBooking(booking: Booking) {
     booking.start = "17:30"
     this.booking.next(booking)
   }
   
+  confirmBooking(date: string, start: string, end: string, 
+    mealTray: boolean, laptop: boolean, room: Room, user: User) {
+    return this.http.post<Booking>(this._url, {
+      date,
+      start,
+      end,
+      mealTray,
+      laptop,
+      room,
+      user
+    })
+      .pipe(map(resp => {
+        return resp;
+      }));
+  }
 }

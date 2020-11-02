@@ -27,10 +27,10 @@ export class AccountService {
         return this.http.post<User>('http://localhost:1337/auth/local', { identifier: username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
+                localStorage.setItem('user', JSON.stringify(user.user));
                 localStorage.setItem('jwt', user.jwt);
-                this.userSubject.next(user);
-                return user;
+                this.userSubject.next(user.user);
+                return user.user;
             }));
     }
 

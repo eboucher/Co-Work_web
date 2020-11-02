@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
 import { LocationService } from '../location.service';
-import { Location } from '@app/_models/location';
+import { Workspace } from '@app/_models/workspace';
 
 @Component({
   selector: 'app-location-list',
@@ -17,7 +17,7 @@ import { Location } from '@app/_models/location';
 })
 export class LocationListComponent implements OnInit {
 
-  locations$: Observable<Location[]>;
+  locations$: Observable<Workspace[]>;
   selectedId: string;
 
   //locations : any[] = data.locations;
@@ -33,7 +33,6 @@ export class LocationListComponent implements OnInit {
   ngOnInit() {
     this.locations$ = this.route.paramMap.pipe(
       switchMap(params => {
-        // (+) before `params.get()` turns the string into a number
         this.selectedId = params.get('id');
         return this.service.getLocations();
       })

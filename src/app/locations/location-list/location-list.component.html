@@ -21,7 +21,7 @@
 
         <!--Grid column-->
         <div class="col-lg-4 col-md-6 mb-4"  *ngFor="let location of locations$ | async"
-          [class.selected]="location._id === selectedId">
+          [class.selected]="location.id === selectedId">
 
           <!--Card-->
           <div class="card">
@@ -30,7 +30,7 @@
             <div class="view overlay">
               <img src="http://localhost:1337{{location.avatar.url}}" class="card-img-top"
                 alt="">
-              <a [routerLink]="['/location', location._id]" routerLinkActive="active">
+              <a [routerLink]="['/location', location.id]" routerLinkActive="active">
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>
@@ -41,7 +41,7 @@
               <h4 class="card-title">{{ location.name }}</h4>
               <!--Text-->
               <p class="card-text">{{ location.description }}</p>
-              <a mdbBtn [routerLink]="['/location', location._id]" routerLinkActive="active" mdbWavesEffect
+              <a mdbBtn [routerLink]="['/location', location.id]" routerLinkActive="active" mdbWavesEffect
                 class="btn btn-primary btn-md" data-wow-delay="0.3s">See more
                 <i class="fas fa-play ml-2"></i>
               </a>

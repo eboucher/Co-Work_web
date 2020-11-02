@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
+import { first, switchMap } from 'rxjs/operators';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 import { BookingService } from '../booking.service';
 import { LocationService } from '@app/locations/location.service';
+import { Booking } from '@app/_models';
 
 @Component({
   selector: 'app-third-step',
@@ -14,6 +15,7 @@ import { LocationService } from '@app/locations/location.service';
 })
 export class ThirdStepComponent implements OnInit {
 
+  booking: Booking;
 
   profileForm = new FormGroup({
   });
@@ -28,6 +30,23 @@ export class ThirdStepComponent implements OnInit {
 
   ngOnInit() {
     this.location = this.locationService.location;
+    this.bookingService.currentBooking.subscribe(booking => this.booking = booking);
   }
 
+  createBooking() {
+    this.bookingService.confirmBooking(
+      this.booking.date, 
+      this.booking.start, 
+      this.booking.end, 
+      this.booking.mealTray, 
+      this.booking.laptop, 
+      this.booking.room, 
+      this.booking.user
+      ).pipe(first())
+    .subscribe(
+      data => {},
+      error => {
+        console.log(error);
+      });
+  }
 }
