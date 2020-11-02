@@ -30,27 +30,23 @@ export class BookComponent implements OnInit {
   profileForm = new FormGroup({});
 
   constructor(
-    private data: BookingService,
+    public bookingService: BookingService,
     private route: ActivatedRoute,
     private locationService: LocationService,
-    public accountService: AccountService
+    public accountService: AccountService,
   ) {}
 
-  // ngAfterViewChecked(): void {
-  //   // Data Picker Initialization
-  //   // @ts-ignore
-  //   $('.datepicker').datepicker({ inline: true });
+  // canGo() {
+  //   return this.bookingService.confirmBooking();
   // }
 
   ngOnInit(): void {
-    //console.log("this.user = " + this.user.username);
-    this.data.currentBooking.subscribe(booking => this.booking = booking)
+    this.bookingService.currentBooking.subscribe(booking => this.booking = booking)
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.locationID = params.get('_id');
       this.locationService.getLocationByID(this.locationID).pipe(first())
         .subscribe(
           data => {
-            //console.log("this.location = " + JSON.stringify(data));
             this.location = data;
           },
           error => {
@@ -59,4 +55,5 @@ export class BookComponent implements OnInit {
     });
   }
 
+  
 }

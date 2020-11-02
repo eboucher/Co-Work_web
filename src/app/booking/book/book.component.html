@@ -14,19 +14,24 @@
           <div class="col-lg-8">
 
             <!-- Pills navs -->
-            <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
+            <ul class="nav nav-pills md-pills mb-3 nav-justified pills-primary font-weight-bold" role="tablist">
               <li class="nav-item">
-                <!-- href="#first-step" -->
                 <a class="nav-link active" data-toggle="tab" role="tab"
                 [routerLink]="['/book/'+locationID+'/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
               </li>
-              <li class="nav-item">
-                <!-- href="#second-step" -->
+
+              <li class="nav-item" *ngIf="!this.bookingService.firstFormCompleted(this.booking)">
+                <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>2. Add services</a>
+              </li>
+              <li class="nav-item" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
                 <a class="nav-link" data-toggle="tab" role="tab"
                 [routerLink]="['/book/'+locationID+'/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
               </li>
-              <li class="nav-item">
-                <!-- href="#third-step" -->
+
+              <li class="nav-item" *ngIf="!this.bookingService.firstFormCompleted(this.booking)">
+                <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>3. Payment</a>
+              </li>
+              <li class="nav-item" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
                 <a class="nav-link" data-toggle="tab" role="tab"
                 [routerLink]="['/book/'+locationID+'/third-step']" routerLinkActive="active" mdbWavesEffect>3. Payment</a>
               </li>

@@ -19,14 +19,15 @@ export class BookingService implements OnInit {
   private booking = new BehaviorSubject<Booking>(
     {
       date: "",
-      start: null,
-      end: null,
+      start: "",
+      end: "",
       user: this.accountService.userValue,
       room: null,
       mealTray: false,
       laptop: false,
     },
   );
+
   currentBooking = this.booking.asObservable();
 
   // ngOnInit somehow not executing
@@ -42,6 +43,12 @@ export class BookingService implements OnInit {
   changeBooking(booking: Booking) {
     booking.start = "17:30"
     this.booking.next(booking)
+  }
+
+  firstFormCompleted(booking: Booking) {
+    return (booking.date != ""
+      && booking.start != ""
+      && booking.end != "");
   }
   
   confirmBooking(date: string, start: string, end: string, 

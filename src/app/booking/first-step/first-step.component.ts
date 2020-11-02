@@ -18,7 +18,7 @@ export class FirstStepComponent implements OnInit {
   roomType: string;
 
   constructor(
-    private bookingService: BookingService,
+    public bookingService: BookingService,
     private locationService: LocationService,
   ) {}
 
@@ -30,21 +30,29 @@ export class FirstStepComponent implements OnInit {
   setDate(newDate: string) {
     this.booking.date = newDate;
     console.log("this.booking.date = " + newDate);
+    console.log("this.bookingService.firstFormCompleted() = " 
+    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setStart(newStart: string) {
     this.booking.start = newStart;
     console.log("this.booking.start = " + this.booking.start);
+    console.log("this.bookingService.firstFormCompleted() = " 
+    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setEnd(newEnd: string) {
     this.booking.end = newEnd;
     console.log("this.booking.end = " + this.booking.end);
+    console.log("this.bookingService.firstFormCompleted() = " 
+    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setRoomType(roomType: string) {
     this.roomType = roomType;
     console.log("this.roomType = " + this.roomType);
+    console.log("this.bookingService.firstFormCompleted() = " 
+    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   pickRoom() {
