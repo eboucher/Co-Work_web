@@ -16,8 +16,6 @@ export class BookingService implements OnInit {
 
   private _url : string = 'http://localhost:1337/bookings/'
 
-  user: any = {firstName:"OUI", lastName:"NON", username:"hmmm"};
-
   private booking = new BehaviorSubject<Booking>(
     {
       date: "",
