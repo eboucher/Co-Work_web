@@ -29,44 +29,33 @@ export class FirstStepComponent implements OnInit {
 
   setDate(newDate: string) {
     this.booking.date = newDate;
-    console.log("this.booking.date = " + newDate);
-    console.log("this.bookingService.firstFormCompleted() = " 
-    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setStart(newStart: string) {
     this.booking.start = newStart;
-    console.log("this.booking.start = " + this.booking.start);
-    console.log("this.bookingService.firstFormCompleted() = " 
-    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setEnd(newEnd: string) {
     this.booking.end = newEnd;
-    console.log("this.booking.end = " + this.booking.end);
-    console.log("this.bookingService.firstFormCompleted() = " 
-    + this.bookingService.firstFormCompleted(this.booking));
   }
 
   setRoomType(roomType: string) {
-    this.roomType = roomType;
-    console.log("this.roomType = " + this.roomType);
-    console.log("this.bookingService.firstFormCompleted() = " 
-    + this.bookingService.firstFormCompleted(this.booking));
+    if(roomType == "Meeting room")
+      this.roomType = "meetingRoom"
+    if(roomType == "Call room")
+      this.roomType = "callRoom"
+    if(roomType == "Cozy lounge")
+      this.roomType = "cozyLouge"
   }
 
   pickRoom() {
-    console.log("The room is available.");
-    for (let i = 0; (i < this.workspace.rooms.length) 
-        && (this.workspace.rooms[i].roomType == this.roomType);
-        i++) 
-    {
-      if (this.workspace.rooms[i].isRoomAvailable(this.booking.date, 
-        this.booking.start, this.booking.end)) {
-          console.log("The room is available.");
-          this.booking.room = this.workspace.rooms[i];
-          console.log("this.booking.room = " + this.booking.room.name);
+    this.workspace.rooms.forEach(room => {
+      const newRoom = new Room(room.id, room.name, room.roomType, room.bookings);
+      if(newRoom.isRoomAvailable(this.booking.date, this.booking.start, this.booking.end)
+          && newRoom.roomType == this.roomType) {
+          this.booking.room = newRoom;
+          return;
         }
-    }
+    })
   }
 }

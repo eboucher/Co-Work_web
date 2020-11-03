@@ -34,13 +34,13 @@ export class ThirdStepComponent implements OnInit {
   }
 
   createBooking() {
-    this.bookingService.confirmBooking(
+    this.bookingService.createBooking(
       this.booking.date, 
       this.booking.start, 
       this.booking.end, 
       this.booking.mealTray, 
       this.booking.laptop, 
-      this.booking.room, 
+      this.booking.room.id, 
       this.booking.user
       ).pipe(first())
     .subscribe(

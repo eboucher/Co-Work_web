@@ -63,22 +63,58 @@
                 <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">Summary</h4>
 
                 <hr>
-                <dl class="row">
-                  <dd class="col-sm-8">
-                    Meeting room {{location.name}}
+                <dl class="row" *ngIf="location.name">
+                  <dd class="col">
+                    Location
                   </dd>
-                  <dd class="col-sm-4">
-                    20 €
+                  <dd class="col-6">
+                    {{location.name}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.date">
+                  <dd class="col">
+                    Date
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.date}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.start">
+                  <dd class="col">
+                    From
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.start}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.end">
+                  <dd class="col">
+                    Until
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.end}}
+                  </dd>
+                </dl>
+                
+                <dl class="row" *ngIf="this.booking.room">
+                  <dd class="col">
+                    Room type
+                  </dd>
+                  <dd class="col-6">
+                    {{booking.room.roomType}}
                   </dd>
                 </dl>
 
-                <hr>
-                <dl class="row">
-                  <dd class="col-sm-8">
-                    booking.start = {{booking.start}}
+                <hr *ngIf="this.bookingService.firstFormCompleted(this.booking)">
+                <dl class="row" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
+                  <dd class="col">
+                    Total
                   </dd>
-                  <dd class="col-sm-8">
-                    booking.user.lastName = {{booking.user.lastName}}
+                  <dd class="col-6">
+                    20 €
                   </dd>
                 </dl>
 

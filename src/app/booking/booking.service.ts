@@ -51,7 +51,7 @@ export class BookingService implements OnInit {
       && booking.end != "");
   }
   
-  confirmBooking(date: string, start: string, end: string, 
+  createBooking(date: string, start: string, end: string, 
     mealTray: boolean, laptop: boolean, room: Room, user: User) {
     return this.http.post<Booking>(this._url, {
       date,
