@@ -2,36 +2,55 @@
 <main class="mt-5 pt-5">
   <div class="container">
 
+    <!-- Section heading -->
+    <h3 class="text-center font-weight-bold mb-5">Bookings</h3>
+
     <hr class="my-5">
 
     <!--Section: Cards-->
     <section class="text-center">
 
       <!--Grid row-->
-      <div class="row mb-4 wow fadeIn">
+      <div class="row mb-4 wow fadeIn justify-content-md-center" *ngFor="let booking of user.bookings; let i = index">
 
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let booking of user.bookings; let i = index">
+        <!--Card-->
+        <div class="card col-8">
 
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <div class="card-body">
-              <!--Title-->
-              <h4 class="card-title">Booking no. {{ i + 1 }}</h4>
-              <!--Text-->
-              <p class="card-text">{{ booking.date }}</p>
-              <a mdbBtn [routerLink]="['/', booking.id]" routerLinkActive="active" mdbWavesEffect
-                class="btn btn-primary btn-md" data-wow-delay="0.3s">Delete
-              </a>
+          <!--Card content-->
+          <div class="card-body">
+            <!-- <h4 class="card-title">Booking no. {{ i + 1 }}</h4>
+            <p class="card-text">Date: {{ booking.date }}</p>
+            <p class="card-text">Start: {{ booking.start }}</p>
+            <p class="card-text">End: {{ booking.end }}</p>
+            <a mdbBtn [routerLink]="['/', booking.id]" routerLinkActive="active" mdbWavesEffect
+              class="btn btn-primary btn-md" data-wow-delay="0.3s">Delete
+            </a> -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+              <div class="col">
+                <h4>Booking no. {{ i + 1 }}</h4>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Date</div>
+                <div class="row justify-content-md-center">{{ booking.date }}</div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Start</div>
+                <div class="row justify-content-md-center">{{ booking.start }}</div>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">End</div>
+                <div class="row justify-content-md-center">{{ booking.end }}</div>
+              </div>
+              <div class="col">
+                <a mdbBtn (click)="deleteBooking(booking.id)" routerLinkActive="active" mdbWavesEffect
+                  class="btn btn-primary btn-md" data-wow-delay="0.3s">Delete
+                </a> 
+              </div>
             </div>
-
           </div>
-          <!--/.Card-->
 
         </div>
-        <!--Grid column-->
+        <!--/.Card-->
 
       </div>
       <!--Grid row-->
@@ -42,59 +61,3 @@
   </div>
 </main>
 <!--Main layout-->
-
-<div class="container my-5">
-  
-  <!--Section: Content-->
-  <section class="dark-grey-text">
-
-    <!-- Section heading -->
-    <h3 class="text-center font-weight-bold mb-5">Bookings</h3>
-
-    <ul>
-      <li *ngFor="let booking of user.bookings; let i = index">
-        {{ i + 1 }} : {{ booking.date }}
-      </li>
-    </ul>
-    <!-- Grid row -->
-    <!-- <div class="row" *ngFor="let booking of user.bookings">
-      
-      <div class="col-12 mb-4">
-        <div class="card z-depth-0 bordered border-light">
-          <div class="card-body p-0">
-            <div class="row mx-0">
-              <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                <h5 class="font-weight-bold">Booking</h5>
-                <a class="list-group-item d-flex justify-content-between dark-grey-text">User
-                  <a>{{user.firstName}} {{user.lastName}}</a>
-                </a>
-                <a class="list-group-item d-flex justify-content-between dark-grey-text">Date
-                  <a>{{booking.date}}</a>
-                </a>
-                <a class="list-group-item d-flex justify-content-between dark-grey-text">Start
-                  <a>{{booking.start}}</a>
-                </a>
-                <a class="list-group-item d-flex justify-content-between dark-grey-text">End
-                  <a>{{booking.end}}</a>
-                </a>
-                <a class="list-group-item d-flex justify-content-between dark-grey-text">Price
-                  <a>20 €</a>
-                </a>
-              </div>
-              <div class="col-md-4 text-center pt-4">
-								<p class="h1 font-weight-normal">$0</p>
-                <p class="h5 font-weight-light text-muted mb-4">20</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div> -->
-    <!-- Grid row -->
-
-  </section>
-  <!--Section: Content-->
-
-
-</div>

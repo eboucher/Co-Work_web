@@ -11,27 +11,6 @@ import { AccountService } from '@app/_services';
 })
 export class ProfileComponent implements OnInit {
 
-  movies: any[] = [
-  {
-    "name": "Avengers: Endgame"
-  },
-  {
-    "name": "Good Boys"
-  },
-  {
-    "name": "Playmobil: The Movie"
-  },
-  {
-    "name": "Aquarela"
-  },
-  {
-    "name": "Aladdin"
-  }, 
-  {
-    "name": "Downton Abbey"
-  }
-];
-
   user: User;
 
   profileForm = new FormGroup({
@@ -42,6 +21,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.accountService.userValue;
+  }
+
+  deleteBooking(bookingID) {
+    console.log("Booking " + bookingID + " deleted.")
   }
 
 }
