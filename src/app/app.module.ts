@@ -28,7 +28,8 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { PlansComponent } from './plans';
 import { ContactComponent } from './contact/contact.component';
 
-import * as $ from 'jquery'
+import * as $ from 'jquery';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import * as $ from 'jquery'
     RegisterComponent,
     AlertComponent,
     PlansComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
