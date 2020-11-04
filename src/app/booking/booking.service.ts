@@ -19,6 +19,7 @@ export class BookingService implements OnInit {
 
   private booking = new BehaviorSubject<Booking>(
     {
+      id: "",
       room: "",
       date: "",
       start: "",
@@ -47,7 +48,8 @@ export class BookingService implements OnInit {
   firstFormCompleted(booking: Booking) {
     return (booking.date != ""
       && booking.start != ""
-      && booking.end != "");
+      && booking.end != ""
+      && booking.room != "");
   }
 
   getRoomByID(roomID: string): Observable<Room> {

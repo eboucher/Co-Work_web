@@ -21,6 +21,7 @@ export class FirstStepComponent implements OnInit {
   roomType: string;
   rooms: any;
 
+
   constructor(
     public bookingService: BookingService,
     private locationService: LocationService,
@@ -54,12 +55,18 @@ export class FirstStepComponent implements OnInit {
   }
 
   setRoomType(roomType: string) {
-    if(roomType == "Meeting room")
+    if(roomType == "Meeting room") {
       this.roomType = "meetingRoom"
-    if(roomType == "Call room")
+      this.booking.room = ""
+    }
+    if(roomType == "Call room") {
       this.roomType = "callRoom"
-    if(roomType == "Cozy lounge")
+      this.booking.room = ""
+    }
+    if(roomType == "Cozy lounge") {
       this.roomType = "cozyLouge"
+      this.booking.room = ""
+    }
   }
 
   pickRoom() {
@@ -77,55 +84,37 @@ export class FirstStepComponent implements OnInit {
     }
   }
 
+  public isValidRange(date: string, start: string, end: string): boolean {
+
+    let result = false;
+    let dateTime = new Date();
+
+    let bookDateStart = convertToDate(date, start);
+    let bookDateEnd = convertToDate(date, end);
+    if(bookDateStart < bookDateEnd)
+      result = true;
+
+    return result;
+  }
+
   public isRoomAvailable(room: Room, date: string, 
     start: string, end: string): boolean {
 
-    let bookDateStart = new Date();
-    bookDateStart.setFullYear(getYearFromString(date));
-    bookDateStart.setMonth(getMonthFromString(date));
-    bookDateStart.setDate(getDayFromString(date));
-    bookDateStart.setHours(getHourFromString(start));
-    bookDateStart.setMinutes(getMinuteFromString(start));
-    
-
-    let bookDateEnd = new Date();
-    bookDateEnd.setFullYear(getYearFromString(date));
-    bookDateEnd.setMonth(getMonthFromString(date));
-    bookDateEnd.setDate(getDayFromString(date));
-    bookDateEnd.setHours(getHourFromString(end));
-    bookDateEnd.setMinutes(getMinuteFromString(end));
+    let bookDateStart = convertToDate(date, start);
+    let bookDateEnd = convertToDate(date, end);
 
     for(var i = 0; i < room.bookings.length; i++) {
 
-      let bookRoomStart = new Date();
-      bookRoomStart.setFullYear(getYearFromString(room.bookings[i].date));
-      bookRoomStart.setMonth(getMonthFromString(room.bookings[i].date));
-      bookRoomStart.setDate(getDayFromString(room.bookings[i].date));
-      bookRoomStart.setHours(getHourFromString(room.bookings[i].start));
-      bookRoomStart.setMinutes(getMinuteFromString(room.bookings[i].start));
+      let bookRoomStart = convertToDate(room.bookings[i].date, room.bookings[i].start);
+      let bookRoomEnd = convertToDate(room.bookings[i].date, room.bookings[i].end);
 
-      let bookRoomEnd = new Date();
-      bookRoomEnd.setFullYear(getYearFromString(room.bookings[i].date));
-      bookRoomEnd.setMonth(getMonthFromString(room.bookings[i].date));
-      bookRoomEnd.setDate(getDayFromString(room.bookings[i].date));
-      bookRoomEnd.setHours(getHourFromString(room.bookings[i].end));
-      bookRoomEnd.setMinutes(getMinuteFromString(room.bookings[i].end));
-
-      
-      //console.log("- Comparing with " + bookRoomStart + " to " + bookRoomEnd);
       // ranges overlap if (StartA <= EndB) and (EndA >= StartB)
       if((bookDateStart <= bookRoomEnd) && (bookDateEnd >= bookRoomStart)) {
         console.log("Another booking starting at " + bookRoomStart.toString() + " overlaps with current interval.")
         return false;
       }
-      console.log("No overlapping found.")
     }
-    return true;
-  }
-
-  public isDateOverlapping(startDate1: Number, endDate1: Number, 
-    startDate2: Number, endDate2: Number) {
-
+    console.log("No overlapping found.")
     return true;
   }
 
@@ -149,4 +138,15 @@ export const getHourFromString = (hours: string) => {
 
 export const getMinuteFromString = (min: string) => {
   return Number(min.split(':')[1]);
+};
+
+export const convertToDate = (fullDate: string, time: string) => {
+  let date = new Date();
+  date.setFullYear(getYearFromString(fullDate));
+  date.setMonth(getMonthFromString(fullDate));
+  date.setDate(getDayFromString(fullDate));
+  date.setHours(getHourFromString(time));
+  date.setMinutes(getMinuteFromString(time));
+
+  return date;
 };

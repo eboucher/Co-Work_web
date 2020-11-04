@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
 
@@ -32,6 +33,9 @@ export class ProfileComponent implements OnInit {
 ];
 
   user: User;
+
+  profileForm = new FormGroup({
+  });
 
   constructor(public accountService: AccountService) {
   }
