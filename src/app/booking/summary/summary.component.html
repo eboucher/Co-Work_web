@@ -8,6 +8,41 @@
     <!-- Section description -->
     <p class="text-muted w-responsive mx-auto mb-5">Here you will find all the information about your booking.</p>
 
+    <!-- Panel -->
+    <div class="card">
+
+      <div class="card-header white-text primary-color">
+        Booking room id {{booking.room}}
+      </div>
+
+      <div class="card-body text-center px-4">
+        <div class="list-group list-group-flush">
+          <a class="list-group-item d-flex justify-content-between dark-grey-text">Date
+            <a>{{booking.date}}</a>
+          </a>
+          <a class="list-group-item d-flex justify-content-between dark-grey-text">Start
+            <a>{{booking.start}}</a>
+          </a>
+          <a class="list-group-item d-flex justify-content-between dark-grey-text">End
+            <a>{{booking.end}}</a>
+          </a>
+          <a class="list-group-item d-flex justify-content-between dark-grey-text">Price
+            <a>20 €</a>
+          </a>
+        </div>
+      </div>
+
+      <a mdbBtn color="black" outline="true" mdbWavesEffect class="wow fadeInLeft" data-wow-delay="0.3s"
+      routerLink="/" routerLinkActive="active">
+        Go to Home page</a>
+
+      <a mdbBtn color="black" outline="true" mdbWavesEffect class="wow fadeInLeft" data-wow-delay="0.3s"
+      routerLink="/" routerLinkActive="active">
+        Go to profile</a>
+
+    </div>
+    <!-- Panel -->
+
   </section>
   <!--Section: Content-->
   
