@@ -19,7 +19,7 @@ export class BookingService implements OnInit {
 
   private booking = new BehaviorSubject<Booking>(
     {
-      roomID: "",
+      room: "",
       date: "",
       start: "",
       end: "",
@@ -65,14 +65,14 @@ export class BookingService implements OnInit {
   }
   
   createBooking(date: string, start: string, end: string, 
-    mealTray: boolean, laptop: boolean, roomID: string, user: User) {
+    mealTray: boolean, laptop: boolean, room: string, user: User) {
     return this.http.post<Booking>(this._url, {
       date,
       start,
       end,
       mealTray,
       laptop,
-      roomID,
+      room,
       user
     })
       .pipe(map(resp => {

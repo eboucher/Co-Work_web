@@ -64,38 +64,32 @@ export class FirstStepComponent implements OnInit {
   }
 
   pickRoom() {
-    // this.workspace.rooms.forEach(roomID => {
-    //   const newRoom = this.getRoomByID(roomID).subscribe({
-    //     next: (newRoom) => console.log(newRoom.id)
-    //   });
-    //   console.log("newRoom.bookings.lenght = " + JSON.stringify(newRoom))
-    //   //const newRoom = new Room(room.id, room.name, room.roomType, room.bookings);
-    //   if(this.isRoomAvailable(newRoom, this.booking.date, this.booking.start, this.booking.end)
-    //       && newRoom.roomType == this.roomType) {
-    //       this.booking.roomID = newRoom.id;
-    //       return;
-    //     }
-    // })
-    console.log("this.rooms = " + JSON.stringify(this.rooms));
+    //console.log("this.rooms = " + JSON.stringify(this.rooms));
+    for (let i = 0; i < this.rooms.length; i++) {
+      if(this.rooms[i].roomType == this.roomType) {
+        if (this.isRoomAvailable(this.rooms[i], this.booking.date, this.booking.start, this.booking.end)) {
+          console.log("The room " + this.rooms[i].name + " is available.");
+          this.booking.room = this.rooms[i].id;
+          console.log("this.booking.room " + this.rooms[i].id);
+          return;
+        } else {
+          console.log("No " + this.roomType + " available.");
+        }
+      }
+    }
   }
 
-  public isDateOverlapping(startDate1: Number, endDate1: Number, 
-    startDate2: Number, endDate2: Number) {
+  public isRoomAvailable(room: Room, date: string, 
+    start: string, end: string): boolean {
 
-    return true;
-  }
-
-  public isRoomAvailable(room: Room, date: string, start: string, end: string): boolean {
     let bookDateYear = getYearFromString(date);
     let bookDateMonth = getMonthFromString(date);
     let bookDateDay = getDayFromString(date);
-
     let bookStart = new Date(start);
     let bookEnd = new Date(end);
     
-    console.log("booking = " + room.name);
     // ranges overlap if (StartA <= EndB) and (EndA >= StartB)
-    for(var i = 0; i <room.bookings.length; i++) {
+    for(var i = 0; i < room.bookings.length; i++) {
       let roomDateYear = getYearFromString(room.bookings[i].date);
       let roomDateMonth = getMonthFromString(room.bookings[i].date);
       let roomDateDay = getDayFromString(room.bookings[i].date);
@@ -111,6 +105,12 @@ export class FirstStepComponent implements OnInit {
             return false;
         }
     }
+    return true;
+  }
+
+  public isDateOverlapping(startDate1: Number, endDate1: Number, 
+    startDate2: Number, endDate2: Number) {
+
     return true;
   }
 
