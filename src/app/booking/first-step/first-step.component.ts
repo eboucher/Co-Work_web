@@ -63,9 +63,9 @@ export class FirstStepComponent implements OnInit {
   }
 
   pickRoom() {
-    for (let i = 0; i < this.rooms.length; i++) {
+    for(let i = 0; i < this.rooms.length; i++) {
       if(this.rooms[i].roomType == this.roomType) {
-        if (this.isRoomAvailable(this.rooms[i], this.booking.date, this.booking.start, this.booking.end)) {
+        if(this.isRoomAvailable(this.rooms[i], this.booking.date, this.booking.start, this.booking.end)) {
           console.log("The room " + this.rooms[i].name + " is available.");
           this.booking.room = this.rooms[i].id;
           console.log("this.booking.room " + this.rooms[i].id);
@@ -80,38 +80,39 @@ export class FirstStepComponent implements OnInit {
   public isRoomAvailable(room: Room, date: string, 
     start: string, end: string): boolean {
 
-    console.log("- Checking if room " + room.name + " is available from " + start + " to " + end + " in the date " + date);
-
     let bookDateStart = new Date();
     bookDateStart.setFullYear(getYearFromString(date));
     bookDateStart.setMonth(getMonthFromString(date));
     bookDateStart.setDate(getDayFromString(date));
     bookDateStart.setHours(getHourFromString(start));
     bookDateStart.setMinutes(getMinuteFromString(start));
+    
 
     let bookDateEnd = new Date();
     bookDateEnd.setFullYear(getYearFromString(date));
     bookDateEnd.setMonth(getMonthFromString(date));
     bookDateEnd.setDate(getDayFromString(date));
-    bookDateEnd.setHours(getHourFromString(start));
-    bookDateEnd.setMinutes(getMinuteFromString(start));
+    bookDateEnd.setHours(getHourFromString(end));
+    bookDateEnd.setMinutes(getMinuteFromString(end));
 
     for(var i = 0; i < room.bookings.length; i++) {
 
       let bookRoomStart = new Date();
-      bookRoomStart.setFullYear(getYearFromString(date));
-      bookRoomStart.setMonth(getMonthFromString(date));
-      bookRoomStart.setDate(getDayFromString(date));
-      bookRoomStart.setHours(getHourFromString(start));
-      bookRoomStart.setMinutes(getMinuteFromString(start));
+      bookRoomStart.setFullYear(getYearFromString(room.bookings[i].date));
+      bookRoomStart.setMonth(getMonthFromString(room.bookings[i].date));
+      bookRoomStart.setDate(getDayFromString(room.bookings[i].date));
+      bookRoomStart.setHours(getHourFromString(room.bookings[i].start));
+      bookRoomStart.setMinutes(getMinuteFromString(room.bookings[i].start));
 
       let bookRoomEnd = new Date();
-      bookRoomEnd.setFullYear(getYearFromString(date));
-      bookRoomEnd.setMonth(getMonthFromString(date));
-      bookRoomEnd.setDate(getDayFromString(date));
-      bookRoomEnd.setHours(getHourFromString(start));
-      bookRoomEnd.setMinutes(getMinuteFromString(start));
+      bookRoomEnd.setFullYear(getYearFromString(room.bookings[i].date));
+      bookRoomEnd.setMonth(getMonthFromString(room.bookings[i].date));
+      bookRoomEnd.setDate(getDayFromString(room.bookings[i].date));
+      bookRoomEnd.setHours(getHourFromString(room.bookings[i].end));
+      bookRoomEnd.setMinutes(getMinuteFromString(room.bookings[i].end));
 
+      
+      //console.log("- Comparing with " + bookRoomStart + " to " + bookRoomEnd);
       // ranges overlap if (StartA <= EndB) and (EndA >= StartB)
       if((bookDateStart <= bookRoomEnd) && (bookDateEnd >= bookRoomStart)) {
         console.log("Another booking starting at " + bookRoomStart.toString() + " overlaps with current interval.")

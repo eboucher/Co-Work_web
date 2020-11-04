@@ -1,4 +1,6 @@
-﻿import { Subscription } from './subscription';
+﻿import { BookingService } from '@app/booking/booking.service';
+import { Booking } from '.';
+import { Subscription } from './subscription';
 
 export class User {
     jwt: string;
@@ -9,4 +11,5 @@ export class User {
     firstName: string;
     lastName: string;
     subscription: Subscription;
+    bookings: Booking[];
 }

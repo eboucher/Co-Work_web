@@ -6,78 +6,46 @@
     <!-- Section heading -->
     <h3 class="text-center font-weight-bold mb-5">Bookings</h3>
 
+    <ul>
+      <li *ngFor="let booking of user.bookings; let i = index">
+        {{ i + 1 }} : {{ booking.date }}
+      </li>
+    </ul>
     <!-- Grid row -->
-    <div class="row">
+    <!-- <div class="row" *ngFor="let booking of user.bookings">
       
       <div class="col-12 mb-4">
         <div class="card z-depth-0 bordered border-light">
           <div class="card-body p-0">
             <div class="row mx-0">
               <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                <h5 class="font-weight-bold">Free</h5>
-                <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam tenetur quo ut rerum debitis.</p>
+                <h5 class="font-weight-bold">Booking</h5>
+                <a class="list-group-item d-flex justify-content-between dark-grey-text">User
+                  <a>{{user.firstName}} {{user.lastName}}</a>
+                </a>
+                <a class="list-group-item d-flex justify-content-between dark-grey-text">Date
+                  <a>{{booking.date}}</a>
+                </a>
+                <a class="list-group-item d-flex justify-content-between dark-grey-text">Start
+                  <a>{{booking.start}}</a>
+                </a>
+                <a class="list-group-item d-flex justify-content-between dark-grey-text">End
+                  <a>{{booking.end}}</a>
+                </a>
+                <a class="list-group-item d-flex justify-content-between dark-grey-text">Price
+                  <a>20 €</a>
+                </a>
               </div>
               <div class="col-md-4 text-center pt-4">
 								<p class="h1 font-weight-normal">$0</p>
-                <p class="h5 font-weight-light text-muted mb-4">for 100 MB space</p>
+                <p class="h5 font-weight-light text-muted mb-4">20</p>
               </div>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="col-12 mb-4">
-        <div class="card z-depth-2">
-          <div class="card-body p-0">
-            <div class="row mx-0">
-              <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                <h5 class="font-weight-bold">Personal</h5>
-                <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam tenetur quo ut rerum debitis.</p>
-              </div>
-              <div class="col-md-4 text-center pt-4">
-								<p class="h1 font-weight-normal">$9<span class="font-small grey-text"> / mo</span></p>
-                <p class="h5 font-weight-light text-muted mb-4">for 100 GB space</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-12 mb-4">
-        <div class="card z-depth-0 bordered border-light">
-          <div class="card-body p-0">
-            <div class="row mx-0">
-              <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                <h5 class="font-weight-bold">Team</h5>
-                <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam tenetur quo ut rerum debitis.</p>
-              </div>
-              <div class="col-md-4 text-center pt-4">
-								<p class="h1 font-weight-normal">$29<span class="font-small grey-text"> / mo</span></p>
-                <p class="h5 font-weight-light text-muted mb-4">for 10 TB space</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-12 mb-4">
-        <div class="card z-depth-0 bordered border-light">
-          <div class="card-body p-0">
-            <div class="row mx-0">
-              <div class="col-md-8 grey lighten-4 rounded-left pt-4">
-                <h5 class="font-weight-bold">Business</h5>
-                <p class="font-weight-light text-muted mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam vitae, fuga similique quos aperiam tenetur quo ut rerum debitis.</p>
-              </div>
-              <div class="col-md-4 text-center pt-4">
-                <p class="h1 font-weight-normal">$49<span class="font-small grey-text"> / mo</span></p>
-                <p class="h5 font-weight-light text-muted mb-4">for unlimited space</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
+    </div> -->
     <!-- Grid row -->
 
   </section>
