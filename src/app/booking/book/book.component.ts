@@ -36,10 +36,6 @@ export class BookComponent implements OnInit {
     public accountService: AccountService,
   ) {}
 
-  // canGo() {
-  //   return this.bookingService.confirmBooking();
-  // }
-
   ngOnInit(): void {
     this.bookingService.currentBooking.subscribe(booking => this.booking = booking)
     this.route.paramMap.subscribe((params: ParamMap) => {

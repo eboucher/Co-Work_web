@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookComponent } from './book';
 import { FirstStepComponent } from './first-step';
 import { SecondStepComponent } from './second-step';
+import { SummaryComponent } from './summary';
 import { ThirdStepComponent } from './third-step';
 
 const bookingRoutes: Routes = [
@@ -12,9 +13,10 @@ const bookingRoutes: Routes = [
     children: [
       { path: 'first-step', component: FirstStepComponent, data: { animation: 'first-step' } },
       { path: 'second-step', component: SecondStepComponent, data: { animation: 'second-step' } },
-      { path: 'third-step', component: ThirdStepComponent, data: { animation: 'third-step' } },
+      { path: 'third-step', component: ThirdStepComponent, data: { animation: 'third-step' } }
     ] 
-  }
+  },
+  { path: 'booking/summary', component: SummaryComponent, data: { animation: 'summary' } },
 ];
 
 @NgModule({

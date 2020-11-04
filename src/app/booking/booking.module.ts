@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BookingRoutingModule } from './booking-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { SummaryComponent } from './summary';
 
 
 
@@ -17,7 +18,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     BookComponent, 
     FirstStepComponent,
     SecondStepComponent, 
-    ThirdStepComponent
+    ThirdStepComponent,
+    SummaryComponent
   ],
   imports: [
     CommonModule,
