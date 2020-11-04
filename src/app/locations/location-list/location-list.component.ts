@@ -26,7 +26,7 @@ export class LocationListComponent implements OnInit {
   });
 
   constructor(
-    private service: LocationService,
+    private locationService: LocationService,
     private route: ActivatedRoute
   ) {}
 
@@ -34,7 +34,7 @@ export class LocationListComponent implements OnInit {
     this.locations$ = this.route.paramMap.pipe(
       switchMap(params => {
         this.selectedId = params.get('id');
-        return this.service.getLocations();
+        return this.locationService.getLocations();
       })
     );
   }

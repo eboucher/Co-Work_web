@@ -40,7 +40,7 @@ export class ThirdStepComponent implements OnInit {
       this.booking.end, 
       this.booking.mealTray, 
       this.booking.laptop, 
-      this.booking.room.id, 
+      this.booking.roomID, 
       this.booking.user
       ).pipe(first())
     .subscribe(

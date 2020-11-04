@@ -8,6 +8,7 @@ import { Booking } from '../_models/booking';
 import { Room, User } from '@app/_models';
 import { AccountService } from '@app/_services';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -18,11 +19,11 @@ export class BookingService implements OnInit {
 
   private booking = new BehaviorSubject<Booking>(
     {
+      roomID: "",
       date: "",
       start: "",
       end: "",
       user: this.accountService.userValue,
-      room: null,
       mealTray: false,
       laptop: false,
     },
@@ -36,9 +37,7 @@ export class BookingService implements OnInit {
     console.log("this.accountService.userValue = " + this.accountService.userValue);
   }
 
-  constructor(private bookingService: MessageService, 
-              public accountService: AccountService,
-              private http: HttpClient) { }
+  constructor(public accountService: AccountService, private http: HttpClient) { }
 
   changeBooking(booking: Booking) {
     booking.start = "17:30"
@@ -50,16 +49,30 @@ export class BookingService implements OnInit {
       && booking.start != ""
       && booking.end != "");
   }
+
+  getRoomByID(roomID: string): Observable<Room> {
+    return this.http.get<Room>(`${environment.apiUrl}/rooms/${roomID}`)
+    .pipe(map(resp => {
+      return resp;
+    }));
+  }
+
+  getBookingByID(bookingID: string): Observable<Room> {
+    return this.http.get<Room>(`${environment.apiUrl}/bookings/${bookingID}`)
+    .pipe(map(resp => {
+      return resp;
+    }));
+  }
   
   createBooking(date: string, start: string, end: string, 
-    mealTray: boolean, laptop: boolean, room: Room, user: User) {
+    mealTray: boolean, laptop: boolean, roomID: string, user: User) {
     return this.http.post<Booking>(this._url, {
       date,
       start,
       end,
       mealTray,
       laptop,
-      room,
+      roomID,
       user
     })
       .pipe(map(resp => {

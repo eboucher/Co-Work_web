@@ -29,22 +29,18 @@ export class SecondStepComponent implements OnInit {
 
   addLaptop() {
     this.booking.laptop = true;
-    console.log("this.booking.laptop = " + this.booking.laptop);
   }
 
   removeLaptop() {
     this.booking.laptop = false;
-    console.log("this.booking.laptop = " + this.booking.laptop);
   }
 
   addMealTray() {
     this.booking.mealTray = true;
-    console.log("this.booking.mealTray = " + this.booking.mealTray);
   }
 
   removeMealTray() {
     this.booking.mealTray = false;
-    console.log("this.booking.mealTray = " + this.booking.mealTray);
   }
 
   newBooking() {
