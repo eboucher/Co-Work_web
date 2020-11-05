@@ -78,7 +78,7 @@ export class FirstStepComponent implements OnInit {
       this.booking.room = ""
     }
     if(roomType == "Cozy lounge") {
-      this.roomType = "cozyLouge"
+      this.roomType = "cozyLounge"
       this.booking.room = ""
     }
     if(roomType == "") {

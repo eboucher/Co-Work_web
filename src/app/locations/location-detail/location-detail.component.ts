@@ -45,17 +45,14 @@ export class LocationDetailComponent implements OnInit {
       this.workspaceID = params.id;
     });
     this.workspaceService.getWorkspaceByID(this.workspaceID).subscribe(e => {
-        console.log("RÉPONSE e = " + e),
         this.workspace = e,
-        console.log("this.workspace = " + this.workspace.rooms[0].roomType),
 
         this.workspace.rooms.forEach(room => {
-          console.log("room = " + JSON.stringify(room))
           if(room.roomType == "meetingRoom")
             this.noMeetingRooms += 1;
           if(room.roomType == "callRoom")
             this.noCallRooms += 1;
-          if(room.roomType == "cozyLouge")
+          if(room.roomType == "cozyLounge")
             this.noCozyLounges += 1;
         });
       });
