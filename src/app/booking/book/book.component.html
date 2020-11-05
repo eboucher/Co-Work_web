@@ -20,18 +20,18 @@
                 [routerLink]="['/book/'+locationID+'/first-step']" routerLinkActive="active" mdbWavesEffect>1. Schedule booking</a>
               </li>
 
-              <li class="nav-item" *ngIf="!this.bookingService.firstFormCompleted(this.booking)">
+              <li class="nav-item" *ngIf="!this.bookingService.firstStepCompleted">
                 <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>2. Add services</a>
               </li>
-              <li class="nav-item" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
+              <li class="nav-item" *ngIf="this.bookingService.firstStepCompleted">
                 <a class="nav-link" data-toggle="tab" role="tab"
                 [routerLink]="['/book/'+locationID+'/second-step']" routerLinkActive="active" mdbWavesEffect>2. Add services</a>
               </li>
 
-              <li class="nav-item" *ngIf="!this.bookingService.firstFormCompleted(this.booking)">
+              <li class="nav-item" *ngIf="!this.bookingService.firstStepCompleted">
                 <a class="nav-link" data-toggle="tab" role="tab" mdbWavesEffect>3. Payment</a>
               </li>
-              <li class="nav-item" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
+              <li class="nav-item" *ngIf="this.bookingService.firstStepCompleted">
                 <a class="nav-link" data-toggle="tab" role="tab"
                 [routerLink]="['/book/'+locationID+'/third-step']" routerLinkActive="active" mdbWavesEffect>3. Payment</a>
               </li>
@@ -108,8 +108,8 @@
                   </dd>
                 </dl>
 
-                <hr *ngIf="this.bookingService.firstFormCompleted(this.booking)">
-                <dl class="row" *ngIf="this.bookingService.firstFormCompleted(this.booking)">
+                <hr *ngIf="this.bookingService.firstStepCompleted">
+                <dl class="row" *ngIf="this.bookingService.firstStepCompleted">
                   <dd class="col">
                     Total
                   </dd>

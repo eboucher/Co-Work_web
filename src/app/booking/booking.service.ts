@@ -13,9 +13,11 @@ import { environment } from '@environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class BookingService implements OnInit {
+export class BookingService {
 
   private _url : string = 'http://localhost:1337/bookings/'
+
+  public firstStepCompleted: boolean;
 
   private booking = new BehaviorSubject<Booking>(
     {
@@ -32,13 +34,9 @@ export class BookingService implements OnInit {
 
   currentBooking = this.booking.asObservable();
 
-  // ngOnInit somehow not executing
-  ngOnInit(): void {
-    console.log("booking = " + this.booking);
-    console.log("this.accountService.userValue = " + this.accountService.userValue);
+  constructor(public accountService: AccountService, private http: HttpClient) {
+    this.firstStepCompleted = false;
   }
-
-  constructor(public accountService: AccountService, private http: HttpClient) { }
 
   changeBooking(booking: Booking) {
     booking.start = "17:30"
@@ -48,8 +46,7 @@ export class BookingService implements OnInit {
   firstFormCompleted(booking: Booking) {
     return (booking.date != ""
       && booking.start != ""
-      && booking.end != ""
-      && booking.room != "");
+      && booking.end != "");
   }
 
   getRoomByID(roomID: string): Observable<Room> {

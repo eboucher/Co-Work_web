@@ -11,20 +11,13 @@
     <section class="text-center">
 
       <!--Grid row-->
-      <div class="row mb-4 wow fadeIn justify-content-md-center" *ngFor="let booking of user.bookings; let i = index">
+      <div class="row mb-4 wow fadeIn justify-content-md-center" *ngFor="let booking of bookings; let i = index">
 
         <!--Card-->
         <div class="card col-8">
 
           <!--Card content-->
           <div class="card-body">
-            <!-- <h4 class="card-title">Booking no. {{ i + 1 }}</h4>
-            <p class="card-text">Date: {{ booking.date }}</p>
-            <p class="card-text">Start: {{ booking.start }}</p>
-            <p class="card-text">End: {{ booking.end }}</p>
-            <a mdbBtn [routerLink]="['/', booking.id]" routerLinkActive="active" mdbWavesEffect
-              class="btn btn-primary btn-md" data-wow-delay="0.3s">Delete
-            </a> -->
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
               <div class="col">
                 <h4>Booking no. {{ i + 1 }}</h4>

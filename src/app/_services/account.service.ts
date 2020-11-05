@@ -5,7 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/_models';
+import { Booking, User } from '@app/_models';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -78,5 +78,20 @@ export class AccountService {
                 }
                 return x;
             }));
+    }
+
+    deleteBooking(bookingID: string): any {
+      return this.http.delete<Booking>(`${environment.apiUrl}/bookings/${bookingID}`)
+        .pipe(map(resp => {
+          console.log(resp);
+        }));
+    }
+
+    getUserBookings(userID: string):any {
+        return this.http.get<Booking[]>(`${environment.apiUrl}/bookings?user.id=${userID}`)
+          .pipe(map(resp => {
+            console.log(resp);
+            return resp;
+          }));
     }
 }

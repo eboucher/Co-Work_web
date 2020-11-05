@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { first, map, switchMap } from 'rxjs/operators';
 import { Booking } from '../../_models/booking';
 import { BookingService } from '../booking.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-first-step',
@@ -26,11 +27,13 @@ export class FirstStepComponent implements OnInit {
     public bookingService: BookingService,
     private locationService: LocationService,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit() {
-    this.rooms = []
+    this.rooms = [];
+    this.roomType = "";
     this.locationService.location.rooms.map(room => {
       return this.bookingService.getRoomByID(room._id).subscribe(e => {
         this.rooms.push(e)
@@ -51,7 +54,18 @@ export class FirstStepComponent implements OnInit {
   }
 
   setEnd(newEnd: string) {
+    this.isValidRange();
     this.booking.end = newEnd;
+  }
+
+  firstFormCompleted() {
+    let result = (this.booking.date != ""
+    && this.booking.start != ""
+    && this.booking.end != ""
+    && this.roomType != "");
+    console.log("this.roomType = " + this.roomType)
+    console.log("result = " + result)
+    return result;
   }
 
   setRoomType(roomType: string) {
@@ -67,33 +81,42 @@ export class FirstStepComponent implements OnInit {
       this.roomType = "cozyLouge"
       this.booking.room = ""
     }
+    if(roomType == "") {
+      this.roomType = ""
+      this.booking.room = ""
+    }
   }
 
-  pickRoom() {
+  pickRoom(): boolean {
     for(let i = 0; i < this.rooms.length; i++) {
       if(this.rooms[i].roomType == this.roomType) {
         if(this.isRoomAvailable(this.rooms[i], this.booking.date, this.booking.start, this.booking.end)) {
           console.log("The room " + this.rooms[i].name + " is available.");
           this.booking.room = this.rooms[i].id;
           console.log("this.booking.room " + this.rooms[i].id);
-          return;
+          this.bookingService.firstStepCompleted = true;
+          this.toastr.success("Room available found.")
+          return true;
         } else {
           console.log("No " + this.roomType + " available.");
         }
       }
     }
+    this.toastr.error("No available " + this.roomType + " was found.");
+    return false;
   }
 
-  public isValidRange(date: string, start: string, end: string): boolean {
+  public isValidRange(): boolean {
 
     let result = false;
     let dateTime = new Date();
 
-    let bookDateStart = convertToDate(date, start);
-    let bookDateEnd = convertToDate(date, end);
-    if(bookDateStart < bookDateEnd)
+    let bookDateStart = convertToDate(this.booking.date, this.booking.start);
+    let bookDateEnd = convertToDate(this.booking.date, this.booking.end);
+    if(bookDateStart < bookDateEnd && bookDateStart <= dateTime) {
       result = true;
-
+    }
+    this.toastr.error("Please, select a valid range of time.");
     return result;
   }
 

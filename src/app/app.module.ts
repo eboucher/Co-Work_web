@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LocationsModule } from './locations';
 import { BookingModule } from './booking';
 import { AppComponent } from './app.component';
-
+import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer';
 import { NavbarComponent } from './navbar';
 import { HomeComponent } from './home';
@@ -53,7 +53,8 @@ import { ProfileComponent } from './profile/profile.component'
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
