@@ -51,7 +51,7 @@
     <!--Room-->
     <div class="mb-4">
       <label for="country">Room type</label>
-      <select #roomType (change)="setRoomType(roomType.value)" class="custom-select d-block w-100" id="room_type" required>
+      <select (click)="pickRoom()" #roomType (change)="setRoomType(roomType.value)" class="custom-select d-block w-100" id="room_type" required>
         <option value="">Choose...</option>
         <option>Meeting room</option>
         <option>Call room</option>
@@ -72,7 +72,6 @@
 
     <a
       mdbBtn
-      (click)="pickRoom()"
       *ngIf="this.firstFormCompleted()"
       [routerLink]="['/book/'+workspace._id+'/second-step']"
       routerLinkActive="active"

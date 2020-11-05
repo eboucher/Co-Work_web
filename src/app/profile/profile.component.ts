@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Booking, User } from '@app/_models';
+import { Booking, Room, User } from '@app/_models';
 import { AccountService } from '@app/_services';
 import { first } from 'rxjs/operators';
 
@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   user: User;
   bookings: Booking[];
+  rooms: Room[];
 
   profileForm = new FormGroup({
   });
@@ -24,9 +25,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.accountService.userValue;
     this.bookings = [];
-    console.log("Ça fonctionne.")
     this.accountService.getUserBookings(this.user.id).subscribe(e => 
       this.bookings = e);
+      console.log("this.bookings[] = " + this.bookings);
   }
 
   deleteBooking(bookingID) {

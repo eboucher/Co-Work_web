@@ -21,6 +21,7 @@ export class FirstStepComponent implements OnInit {
   booking: Booking;
   roomType: string;
   rooms: any;
+  roomAvailable: boolean;
 
 
   constructor(
@@ -34,11 +35,11 @@ export class FirstStepComponent implements OnInit {
   ngOnInit() {
     this.rooms = [];
     this.roomType = "";
+    this.roomAvailable = false;
     this.locationService.location.rooms.map(room => {
       return this.bookingService.getRoomByID(room._id).subscribe(e => {
         this.rooms.push(e)
-      }
-      );
+      });
     });
 
     this.workspace = this.locationService.location;
@@ -54,17 +55,16 @@ export class FirstStepComponent implements OnInit {
   }
 
   setEnd(newEnd: string) {
-    this.isValidRange();
     this.booking.end = newEnd;
+    this.isValidRange();
   }
 
   firstFormCompleted() {
     let result = (this.booking.date != ""
     && this.booking.start != ""
     && this.booking.end != ""
-    && this.roomType != "");
-    console.log("this.roomType = " + this.roomType)
-    console.log("result = " + result)
+    && this.roomType != ""
+    && this.roomAvailable);
     return result;
   }
 
@@ -87,7 +87,7 @@ export class FirstStepComponent implements OnInit {
     }
   }
 
-  pickRoom(): boolean {
+  pickRoom() {
     for(let i = 0; i < this.rooms.length; i++) {
       if(this.rooms[i].roomType == this.roomType) {
         if(this.isRoomAvailable(this.rooms[i], this.booking.date, this.booking.start, this.booking.end)) {
@@ -96,7 +96,8 @@ export class FirstStepComponent implements OnInit {
           console.log("this.booking.room " + this.rooms[i].id);
           this.bookingService.firstStepCompleted = true;
           this.toastr.success("Room available found.")
-          return true;
+          this.roomAvailable = true;
+          return;
         } else {
           console.log("No " + this.roomType + " available.");
         }
@@ -108,16 +109,19 @@ export class FirstStepComponent implements OnInit {
 
   public isValidRange(): boolean {
 
-    let result = false;
     let dateTime = new Date();
 
     let bookDateStart = convertToDate(this.booking.date, this.booking.start);
     let bookDateEnd = convertToDate(this.booking.date, this.booking.end);
-    if(bookDateStart < bookDateEnd && bookDateStart <= dateTime) {
-      result = true;
+    //console.log("dateTime = " + dateTime);
+    //console.log("bookDateStart = " + bookDateStart);
+    //console.log("bookDateEnd = " + bookDateEnd);
+    if((dateTime < bookDateStart) && (bookDateStart < bookDateEnd)) {
+      this.toastr.success("Time interval validated.");
+      return true;
     }
-    this.toastr.error("Please, select a valid range of time.");
-    return result;
+    this.toastr.error("Please, select a valid time interval.");
+    return false;
   }
 
   public isRoomAvailable(room: Room, date: string, 

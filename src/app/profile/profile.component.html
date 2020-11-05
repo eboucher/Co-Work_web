@@ -14,13 +14,17 @@
       <div class="row mb-4 wow fadeIn justify-content-md-center" *ngFor="let booking of bookings; let i = index">
 
         <!--Card-->
-        <div class="card col-8">
+        <div class="card col-12">
 
           <!--Card content-->
           <div class="card-body">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6">
               <div class="col">
                 <h4>Booking no. {{ i + 1 }}</h4>
+              </div>
+              <div class="col">
+                <div class="row justify-content-md-center">Room</div>
+                <div class="row justify-content-md-center">{{ booking.room.name }}</div>
               </div>
               <div class="col">
                 <div class="row justify-content-md-center">Date</div>
