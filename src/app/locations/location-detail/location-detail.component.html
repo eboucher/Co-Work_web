@@ -1,10 +1,10 @@
-<main class="mt-5 pt-5" *ngIf="location$ | async as location">
+<main class="mt-5 pt-5" *ngIf="workspace">
   <div class="container">
 
     <mdb-card cascade="true" wider="true" reverse="true" class="my-4">
       <!--Card image-->
       <div class="view view-cascade overlay waves-light" mdbWavesEffect>
-        <mdb-card-img src="http://localhost:1337{{location.avatar.url}}"></mdb-card-img>
+        <mdb-card-img src="http://localhost:1337{{workspace.avatar.url}}"></mdb-card-img>
         <a>
           <div class="mask rgba-white-slight"></div>
         </a>
@@ -17,7 +17,7 @@
         <!--Title-->
         <mdb-card-title>
           <h1>
-            <strong>Co'Work {{ location.name }}</strong>
+            <strong>Co'Work {{ workspace.name }}</strong>
           </h1>
         </mdb-card-title>
     
@@ -27,7 +27,7 @@
         </h5>
     
         <mdb-card-text>
-          {{ location.description }}
+          {{ workspace.description }}
         </mdb-card-text>
 
       </mdb-card-body>
@@ -71,7 +71,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-5">
           <h4 class="font-weight-bold mb-3">
-            <mdb-icon fas icon="calendar-alt" class="blue-grey-text pr-3"></mdb-icon>2 bookable meeting rooms
+            <mdb-icon fas icon="calendar-alt" class="blue-grey-text pr-3"></mdb-icon>{{noMeetingRooms}} bookable meeting rooms
           </h4>
           <p class="text-muted mb-lg-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -79,7 +79,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-5">
           <h4 class="font-weight-bold mb-3">
-            <mdb-icon fas icon="phone" class="blue-text pr-3"></mdb-icon>3 bookable call rooms
+            <mdb-icon fas icon="phone" class="blue-text pr-3"></mdb-icon>{{noCallRooms}} bookable call rooms
           </h4>
           <p class="text-muted mb-lg-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -87,7 +87,7 @@
         </div>
         <div class="col-lg-4 col-md-6 mb-5">
           <h4 class="font-weight-bold mb-3">
-            <mdb-icon fas icon="couch" class="red-text pr-3"></mdb-icon>1 cozy lounge
+            <mdb-icon fas icon="couch" class="red-text pr-3"></mdb-icon>{{noCozyLounges}} cozy lounge
           </h4>
           <p class="text-muted mb-lg-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -129,13 +129,13 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{location.mondayOp}} to {{location.mondayCl}}</td>
-              <td>{{location.tuesdayOp}} to {{location.tuesdayCl}}</td>
-              <td>{{location.wednesdayOp}} to {{location.wednesdayCl}}</td>
-              <td>{{location.thursdayOp}} to {{location.thursdayCl}}</td>
-              <td>{{location.fridayOp}} to {{location.fridayCl}}</td>
-              <td>{{location.saturdayOp}} to {{location.saturdayCl}}</td>
-              <td>{{location.sundayOp}} to {{location.sundayCl}}</td>
+              <td>{{workspace.mondayOp}} to {{workspace.mondayCl}}</td>
+              <td>{{workspace.tuesdayOp}} to {{workspace.tuesdayCl}}</td>
+              <td>{{workspace.wednesdayOp}} to {{workspace.wednesdayCl}}</td>
+              <td>{{workspace.thursdayOp}} to {{workspace.thursdayCl}}</td>
+              <td>{{workspace.fridayOp}} to {{workspace.fridayCl}}</td>
+              <td>{{workspace.saturdayOp}} to {{workspace.saturdayCl}}</td>
+              <td>{{workspace.sundayOp}} to {{workspace.sundayCl}}</td>
             </tr>
           </tbody>
         </table>
@@ -146,7 +146,7 @@
 
   <div class="container">
       <button class="col-md-12" mdbBtn type="button" gradient="blue" rounded="true"
-      [routerLink]="['/book/'+location.id+'/first-step']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
+      [routerLink]="['/book/'+workspace.id+'/first-step']" routerLinkActive="active" mdbWavesEffect data-wow-delay="0.3s">
         Book a time slot</button>
   </div>
 
